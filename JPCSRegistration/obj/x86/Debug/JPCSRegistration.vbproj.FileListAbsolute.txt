@@ -20,3 +20,4 @@ C:\Users\Andrew\Documents\Visual Studio 2010\Projects\JPCSRegistration\JPCSRegis
 C:\Users\Andrew\Documents\Visual Studio 2010\Projects\JPCSRegistration\JPCSRegistration\bin\Debug\Report1.rdlc
 C:\Users\Andrew\Documents\Visual Studio 2010\Projects\JPCSRegistration\JPCSRegistration\bin\Debug\JPCSRegistration.exe.config
 C:\Users\Andrew\Documents\Visual Studio 2010\Projects\JPCSRegistration\JPCSRegistration\obj\x86\Debug\JPCSRegistration.Server.resources
+C:\Users\Andrew\Documents\Visual Studio 2010\Projects\JPCSRegistration\JPCSRegistration\obj\x86\Debug\JPCSRegistration.Configuration.resources

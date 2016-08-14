@@ -32,9 +32,9 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lbl_eventdate = New System.Windows.Forms.Label()
+        Me.lbl_eventname = New System.Windows.Forms.Label()
+        Me.lbl_eventtime = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabBSIT = New System.Windows.Forms.TabPage()
@@ -105,7 +105,7 @@ Partial Class Form1
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Lemon", 16.0!)
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(162, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(41, Byte), Integer))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(509, 89)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(150, 28)
@@ -123,38 +123,38 @@ Partial Class Form1
         Me.Label5.TabIndex = 1
         Me.Label5.Text = "COMPUTER SOCIETY"
         '
-        'Label6
+        'lbl_eventdate
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(596, 157)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(128, 23)
-        Me.Label6.TabIndex = 8
-        Me.Label6.Text = "July 21, 2016"
+        Me.lbl_eventdate.AutoSize = True
+        Me.lbl_eventdate.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_eventdate.ForeColor = System.Drawing.Color.White
+        Me.lbl_eventdate.Location = New System.Drawing.Point(596, 157)
+        Me.lbl_eventdate.Name = "lbl_eventdate"
+        Me.lbl_eventdate.Size = New System.Drawing.Size(129, 23)
+        Me.lbl_eventdate.TabIndex = 8
+        Me.lbl_eventdate.Text = "lbl_eventdate"
         '
-        'Label7
+        'lbl_eventname
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Lemon", 16.0!)
-        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(145, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(509, 129)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(305, 28)
-        Me.Label7.TabIndex = 1
-        Me.Label7.Text = "General Assembly 2016"
+        Me.lbl_eventname.AutoSize = True
+        Me.lbl_eventname.Font = New System.Drawing.Font("Lemon", 16.0!)
+        Me.lbl_eventname.ForeColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(145, Byte), Integer))
+        Me.lbl_eventname.Location = New System.Drawing.Point(509, 129)
+        Me.lbl_eventname.Name = "lbl_eventname"
+        Me.lbl_eventname.Size = New System.Drawing.Size(202, 28)
+        Me.lbl_eventname.TabIndex = 1
+        Me.lbl_eventname.Text = "lbl_eventname"
         '
-        'Label8
+        'lbl_eventtime
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(596, 188)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(145, 23)
-        Me.Label8.TabIndex = 8
-        Me.Label8.Text = "2:00PM-5:00PM"
+        Me.lbl_eventtime.AutoSize = True
+        Me.lbl_eventtime.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_eventtime.ForeColor = System.Drawing.Color.White
+        Me.lbl_eventtime.Location = New System.Drawing.Point(596, 191)
+        Me.lbl_eventtime.Name = "lbl_eventtime"
+        Me.lbl_eventtime.Size = New System.Drawing.Size(128, 23)
+        Me.lbl_eventtime.TabIndex = 8
+        Me.lbl_eventtime.Text = "lbl_eventtime"
         '
         'Label9
         '
@@ -257,7 +257,7 @@ Partial Class Form1
         Me.DataGridBSCS.ReadOnly = True
         Me.DataGridBSCS.RowHeadersVisible = False
         Me.DataGridBSCS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridBSCS.Size = New System.Drawing.Size(1283, 260)
+        Me.DataGridBSCS.Size = New System.Drawing.Size(1283, 265)
         Me.DataGridBSCS.TabIndex = 0
         '
         'TabBSCPE
@@ -294,7 +294,7 @@ Partial Class Form1
         Me.DataGridBSCPE.ReadOnly = True
         Me.DataGridBSCPE.RowHeadersVisible = False
         Me.DataGridBSCPE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridBSCPE.Size = New System.Drawing.Size(1283, 260)
+        Me.DataGridBSCPE.Size = New System.Drawing.Size(1283, 265)
         Me.DataGridBSCPE.TabIndex = 0
         '
         'TabFACULTY
@@ -324,7 +324,7 @@ Partial Class Form1
         Me.DataGridFaculty.ReadOnly = True
         Me.DataGridFaculty.RowHeadersVisible = False
         Me.DataGridFaculty.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridFaculty.Size = New System.Drawing.Size(1283, 260)
+        Me.DataGridFaculty.Size = New System.Drawing.Size(1283, 265)
         Me.DataGridFaculty.TabIndex = 0
         '
         'Button1
@@ -401,8 +401,8 @@ Partial Class Form1
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.lbl_eventtime)
+        Me.Controls.Add(Me.lbl_eventdate)
         Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox2)
@@ -410,7 +410,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.lbl_eventname)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
@@ -445,9 +445,9 @@ Partial Class Form1
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents lbl_eventdate As System.Windows.Forms.Label
+    Friend WithEvents lbl_eventname As System.Windows.Forms.Label
+    Friend WithEvents lbl_eventtime As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabBSIT As System.Windows.Forms.TabPage

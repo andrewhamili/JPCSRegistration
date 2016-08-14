@@ -39,8 +39,9 @@ Partial Class Print
         '
         'ComboBoxConditions
         '
+        Me.ComboBoxConditions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxConditions.FormattingEnabled = True
-        Me.ComboBoxConditions.Items.AddRange(New Object() {"All Students", "All Faculty", "BSIT-1A", "BSIT-2A", "BSIT-3A", "BSIT-4A", "BSCPE-1A", "BSCPE-2A", "BSCPE-3A", "BSCPE-4A", "BSCPE-5A", "BSCS-1A", "BSCS-2A", "BSCS-3A", "BSCS-4A", "All BSIT", "All BSCS", "All BSCPE"})
+        Me.ComboBoxConditions.Items.AddRange(New Object() {"All Students", "BSIT", "BSCS", "BSCPE"})
         Me.ComboBoxConditions.Location = New System.Drawing.Point(84, 1)
         Me.ComboBoxConditions.Name = "ComboBoxConditions"
         Me.ComboBoxConditions.Size = New System.Drawing.Size(162, 26)

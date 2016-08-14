@@ -40,7 +40,7 @@ Partial Class Form2
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Black", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(13, 17)
+        Me.Label1.Location = New System.Drawing.Point(13, 49)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(106, 23)
@@ -50,7 +50,7 @@ Partial Class Form2
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(13, 54)
+        Me.Label2.Location = New System.Drawing.Point(13, 84)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(124, 23)
@@ -60,7 +60,7 @@ Partial Class Form2
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(14, 88)
+        Me.Label3.Location = New System.Drawing.Point(14, 9)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(105, 23)
         Me.Label3.TabIndex = 2
@@ -69,7 +69,7 @@ Partial Class Form2
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(14, 124)
+        Me.Label4.Location = New System.Drawing.Point(14, 118)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(154, 23)
         Me.Label4.TabIndex = 3
@@ -77,37 +77,41 @@ Partial Class Form2
         '
         'txt_fname
         '
-        Me.txt_fname.Location = New System.Drawing.Point(252, 14)
+        Me.txt_fname.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_fname.Location = New System.Drawing.Point(252, 46)
         Me.txt_fname.Name = "txt_fname"
         Me.txt_fname.Size = New System.Drawing.Size(234, 30)
-        Me.txt_fname.TabIndex = 0
+        Me.txt_fname.TabIndex = 2
         '
         'txt_mname
         '
-        Me.txt_mname.Location = New System.Drawing.Point(252, 51)
+        Me.txt_mname.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_mname.Location = New System.Drawing.Point(252, 81)
         Me.txt_mname.Name = "txt_mname"
         Me.txt_mname.Size = New System.Drawing.Size(234, 30)
-        Me.txt_mname.TabIndex = 1
+        Me.txt_mname.TabIndex = 3
         '
         'txt_lname
         '
-        Me.txt_lname.Location = New System.Drawing.Point(252, 88)
+        Me.txt_lname.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_lname.Location = New System.Drawing.Point(252, 9)
         Me.txt_lname.Name = "txt_lname"
         Me.txt_lname.Size = New System.Drawing.Size(234, 30)
-        Me.txt_lname.TabIndex = 2
+        Me.txt_lname.TabIndex = 1
         '
         'txt_studnum
         '
-        Me.txt_studnum.Location = New System.Drawing.Point(252, 124)
+        Me.txt_studnum.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_studnum.Location = New System.Drawing.Point(252, 118)
         Me.txt_studnum.MaxLength = 8
         Me.txt_studnum.Name = "txt_studnum"
         Me.txt_studnum.Size = New System.Drawing.Size(234, 30)
-        Me.txt_studnum.TabIndex = 3
+        Me.txt_studnum.TabIndex = 4
         '
         'btn_cancel
         '
         Me.btn_cancel.ForeColor = System.Drawing.Color.Black
-        Me.btn_cancel.Location = New System.Drawing.Point(15, 220)
+        Me.btn_cancel.Location = New System.Drawing.Point(18, 208)
         Me.btn_cancel.Name = "btn_cancel"
         Me.btn_cancel.Size = New System.Drawing.Size(132, 54)
         Me.btn_cancel.TabIndex = 8
@@ -118,17 +122,18 @@ Partial Class Form2
         'Button1
         '
         Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(352, 220)
+        Me.Button1.Location = New System.Drawing.Point(355, 208)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(134, 54)
         Me.Button1.TabIndex = 9
+        Me.Button1.TabStop = False
         Me.Button1.Text = "Register"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(14, 162)
+        Me.Label5.Location = New System.Drawing.Point(14, 154)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(234, 23)
         Me.Label5.TabIndex = 10
@@ -140,17 +145,17 @@ Partial Class Form2
         Me.cbox_cys.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_cys.FormattingEnabled = True
         Me.cbox_cys.Items.AddRange(New Object() {"BSIT-1A", "BSIT-2A", "BSIT-3A", "BSIT-4A", "BSCPE-1A", "BSCPE-2A", "BSCPE-3A", "BSCPE-4A", "BSCPE-5A", "BSCS-1A", "BSCS-2A", "BSCS-3A", "BSCS-4A", "FACULTY"})
-        Me.cbox_cys.Location = New System.Drawing.Point(252, 162)
+        Me.cbox_cys.Location = New System.Drawing.Point(252, 154)
         Me.cbox_cys.Name = "cbox_cys"
         Me.cbox_cys.Size = New System.Drawing.Size(234, 31)
-        Me.cbox_cys.TabIndex = 4
+        Me.cbox_cys.TabIndex = 5
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 23.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(499, 296)
+        Me.ClientSize = New System.Drawing.Size(499, 277)
         Me.ControlBox = False
         Me.Controls.Add(Me.cbox_cys)
         Me.Controls.Add(Me.Label5)

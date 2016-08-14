@@ -15,15 +15,21 @@ Public Class Print
 
 
         MySQLConn.ConnectionString = connstring
+        Load_Courses()
 
         MySQLConn.Open()
 
 
 
 
-        query = "SELECT * FROM studentlist order by coyesec, lname"
+        query = "SELECT * FROM " & eventtable & " order by coyesec, lname"
         head = ""
         Dim header As New ReportParameter("course", head)
+        Dim ename As New ReportParameter("eventname", eventname)
+        Dim edate As New ReportParameter("eventdate", eventdate)
+        Dim etime As New ReportParameter("eventtime", eventtime)
+        Dim elocation As New ReportParameter("eventlocation", eventlocation)
+
         Dim adapter As New MySqlDataAdapter
         Dim ds As New DataSet1
 
@@ -34,6 +40,10 @@ Public Class Print
         ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
         ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
         ReportViewer1.LocalReport.SetParameters(header)
+        ReportViewer1.LocalReport.SetParameters(ename)
+        ReportViewer1.LocalReport.SetParameters(edate)
+        ReportViewer1.LocalReport.SetParameters(etime)
+        ReportViewer1.LocalReport.SetParameters(elocation)
         ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
 
         'Me.ReportViewer1.RefreshReport()
@@ -51,10 +61,12 @@ Public Class Print
             MySQLConn.Open()
 
 
-
-
-            query = "SELECT * FROM studentlist where coyesec!='FACULTY' order by coyesec, lname"
+            query = "SELECT * FROM " & eventtable & " where coyesec!='FACULTY' order by coyesec, lname"
             head = ""
+            Dim ename As New ReportParameter("eventname", eventname)
+            Dim edate As New ReportParameter("eventdate", eventdate)
+            Dim etime As New ReportParameter("eventtime", eventtime)
+            Dim elocation As New ReportParameter("eventlocation", eventlocation)
             Dim header As New ReportParameter("course", head)
             Dim adapter As New MySqlDataAdapter
             Dim ds As New DataSet1
@@ -69,375 +81,21 @@ Public Class Print
             ReportViewer1.LocalReport.SetParameters(header)
             ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
 
-            'Me.ReportViewer1.RefreshReport()
             Me.ReportViewer1.RefreshReport()
             MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSIT-4A" Then
-            MySQLConn.Open()
-
-
-            head = "BSIT-4A"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT fname, mname, lname, studnum, timein from studentlist where coyesec='BSIT-4A'"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSIT-3A" Then
-            MySQLConn.Open()
-
-
-            head = "BSIT-3A"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec='BSIT-3A'"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSIT-2A" Then
-            MySQLConn.Open()
-
-
-            head = "BSIT-2A"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec='BSIT-2A'"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSIT-1A" Then
-            MySQLConn.Open()
-
-
-            head = "BSIT-1A"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec='BSIT-1A'"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSCS-4A" Then
-            MySQLConn.Open()
-
-
-            head = "BSCS-4A"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec='BSCS-4A'"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSCS-3A" Then
-            MySQLConn.Open()
-
-
-            head = "BSCS-3A"
-            query = "SELECT * FROM studentlist where coyesec='BSCS-3A'"
-            Dim header As New ReportParameter("course", head)
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSCS-2A" Then
-            MySQLConn.Open()
-
-
-            head = "BSCS-2A"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec='BSCS-2A'"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSCS-1A" Then
-            MySQLConn.Open()
-
-
-            head = "BSCS-1A"
-            query = "SELECT * FROM studentlist where coyesec='BSCS-1A'"
-            Dim header As New ReportParameter("course", head)
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSCPE-5A" Then
-            MySQLConn.Open()
-
-
-            head = "BSCPE-5A"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec='BSCPE-5A'"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSCPE-4A" Then
-            MySQLConn.Open()
-
-
-            head = "BSCPE-4A"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec='BSCPE-4A'"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSCPE-3A" Then
-            MySQLConn.Open()
-
-
-            head = "BSCPE-3A"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec='BSCPE-3A'"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSCPE-2A" Then
-            MySQLConn.Open()
-
-
-            head = "BSCPE-2A"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec='BSCPE-2A'"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSCPE-1A" Then
-            MySQLConn.Open()
-
-
-            head = "BSCPE-1A"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec='BSCPE-1A'"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "All BSIT" Then
-            MySQLConn.Open()
-
-
-            head = "BSIT"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec LIKE 'BSIT%' ORDER BY lname ASC"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "All BSCS" Then
-            MySQLConn.Open()
-
-
-            head = "BSCS"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec LIKE 'BSCS%' ORDER BY lname ASC"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "All BSCPE" Then
-            MySQLConn.Open()
-
-
-            head = "BSCPE"
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT * FROM studentlist where coyesec LIKE 'BSCPE%' ORDER BY lname ASC"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
-
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            'Me.ReportViewer1.RefreshReport()
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "All Faculty" Then
-            MySQLConn.ConnectionString = connstring
+        ElseIf ComboBoxConditions.Text = "BSIT" Or ComboBoxConditions.Text = "BSCS" Or ComboBoxConditions.Text = "BSCPE" Then
 
             MySQLConn.Open()
 
 
-
-
-            query = "SELECT * FROM studentlist where coyesec='FACULTY' order by coyesec, lname"
-            head = "FACULTY"
+            head = ComboBoxConditions.Text
+            Dim ename As New ReportParameter("eventname", eventname)
+            Dim edate As New ReportParameter("eventdate", eventdate)
+            Dim etime As New ReportParameter("eventtime", eventtime)
             Dim header As New ReportParameter("course", head)
+            query = "SELECT fname, mname, lname, studnum, timein, coyesec from " & eventtable & " where coyesec like '%" & ComboBoxConditions.Text & "%'"
             Dim adapter As New MySqlDataAdapter
             Dim ds As New DataSet1
-
             adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
             adapter.Fill(ds.Tables(0))
 
@@ -448,13 +106,62 @@ Public Class Print
             ReportViewer1.LocalReport.SetParameters(header)
             ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
 
-            'Me.ReportViewer1.RefreshReport()
             Me.ReportViewer1.RefreshReport()
             MySQLConn.Close()
+
+
+        ElseIf ComboBoxConditions.Text <> "All Students" Then
+
+            MySQLConn.Open()
+
+
+            head = ComboBoxConditions.Text
+            Dim ename As New ReportParameter("eventname", eventname)
+            Dim edate As New ReportParameter("eventdate", eventdate)
+            Dim etime As New ReportParameter("eventtime", eventtime)
+            Dim header As New ReportParameter("course", head)
+            query = "SELECT fname, mname, lname, studnum, timein, coyesec from " & eventtable & " where coyesec=@comboboxcourse"
+            Dim adapter As New MySqlDataAdapter
+            Dim ds As New DataSet1
+            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
+            adapter.SelectCommand.Parameters.AddWithValue("comboboxcourse", ComboBoxConditions.Text)
+            adapter.Fill(ds.Tables(0))
+
+
+            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
+            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
+            ReportViewer1.LocalReport.DataSources.Clear()
+            ReportViewer1.LocalReport.SetParameters(header)
+            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
+
+            Me.ReportViewer1.RefreshReport()
+            MySQLConn.Close()
+
+           
 
 
         End If
 
 
+    End Sub
+    Public Sub Load_Courses()
+        If MySQLConn.State = ConnectionState.Open Then
+            MySQLConn.Close()
+        End If
+        Dim query As String
+
+        Try
+            MySQLConn.Open()
+            query = "SELECT * FROM courseyearsectionlist"
+            comm = New MySqlCommand(query, MySQLConn)
+            reader = comm.ExecuteReader
+            While reader.Read
+                ComboBoxConditions.Items.Remove(reader.GetString("coyesec"))
+                ComboBoxConditions.Items.Add(reader.GetString("coyesec"))
+            End While
+            MySQLConn.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class

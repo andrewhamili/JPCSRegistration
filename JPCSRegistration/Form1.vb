@@ -17,7 +17,7 @@ Public Class Form1
         Dim ans As String
 
         ans = InputBox("Enter the secret phrase to close the Registratioh form", "Exit...", "I do not know")
-        If ans.IndexOf("umalis na sya", 0, StringComparison.CurrentCultureIgnoreCase) > -1 Then
+        If ans.IndexOf("charish", 0, StringComparison.CurrentCultureIgnoreCase) > -1 Then
 
             e.Cancel = False
         Else
@@ -31,6 +31,7 @@ Public Class Form1
         Timer1.Enabled = True
 
         MySQLConn.ConnectionString = connstring
+        Dim query As String
 
         Try
             MySQLConn.Open()
@@ -39,9 +40,27 @@ Public Class Form1
         Catch ex As Exception
             MsgBox("There was an error connecting to the Database")
             End
-        Finally
-            MySQLConn.Dispose()
         End Try
+        Try
+            MySQLConn.Open()
+            query = "SELECT * FROM existingevents WHERE status='A'"
+            comm = New MySqlCommand(query, MySQLConn)
+            reader = comm.ExecuteReader
+            While reader.Read
+                eventname = reader.GetString("eventname")
+                eventdate = reader.GetString("date")
+                eventtime = reader.GetString("time")
+                eventlocation = reader.GetString("location")
+                eventtable = reader.GetString("eventtable")
+            End While
+            MySQLConn.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        lbl_eventname.Text = eventname
+        lbl_eventdate.Text = eventdate
+        lbl_eventtime.Text = eventtime
 
         LoadTable_BSCPE()
         LoadTable_BSCS()
@@ -83,7 +102,7 @@ Public Class Form1
         Try
 
             MySQLConn.Open()
-            query = "SELECT lname as 'Last Name', fname as 'First Name', mname as 'Middle Name', studnum as 'Student ID', timein as Time from studentlist where coyesec like 'BSIT%'"
+            query = "SELECT lname AS 'Last Name', fname AS 'First Name', mname AS 'Middle Name', studnum AS'Student ID', timein AS Time from " & eventtable & " where coyesec like 'BSIT%' ORDER BY timein DESC"
             comm = New MySqlCommand(query, MySQLConn)
             adapter.SelectCommand = comm
             adapter.Fill(dbdataset)
@@ -122,7 +141,7 @@ Public Class Form1
         Try
 
             MySQLConn.Open()
-            query = "SELECT lname as 'Last Name', fname as 'First Name', mname as 'Middle Name', studnum as 'Student ID', timein as Time from studentlist where coyesec like 'BSCS%'"
+            query = "SELECT lname AS 'Last Name', fname AS 'First Name', mname AS 'Middle Name', studnum AS'Student ID', timein AS Time from " & eventtable & " WHERE coyesec like 'BSCS%' ORDER BY timein DESC"
             comm = New MySqlCommand(query, MySQLConn)
             adapter.SelectCommand = comm
             adapter.Fill(dbdataset)
@@ -160,7 +179,7 @@ Public Class Form1
         Try
 
             MySQLConn.Open()
-            query = "SELECT lname as 'Last Name', fname as 'First Name', mname as 'Middle Name', studnum as 'Student ID', timein as Time from studentlist where coyesec like 'BSCPE%'"
+            query = "SELECT lname AS 'Last Name', fname AS 'First Name', mname AS 'Middle Name', studnum AS'Student ID', timein AS Time from " & eventtable & " where coyesec like 'BSCPE%' ORDER BY timein DESC"
             comm = New MySqlCommand(query, MySQLConn)
             adapter.SelectCommand = comm
             adapter.Fill(dbdataset)
@@ -197,7 +216,7 @@ Public Class Form1
         Try
 
             MySQLConn.Open()
-            query = "SELECT lname as 'Last Name', fname as 'First Name', mname as 'Middle Name', studnum as 'Student ID', timein as Time from studentlist where coyesec='FACULTY'"
+            query = "SELECT lname AS 'Last Name', fname AS 'First Name', mname AS 'Middle Name', studnum AS'Student ID', timein AS Time from " & eventtable & " WHERE coyesec='FACULTY' ORDER BY timein DESC"
             comm = New MySqlCommand(query, MySQLConn)
             adapter.SelectCommand = comm
             adapter.Fill(dbdataset)
@@ -237,8 +256,11 @@ Public Class Form1
     End Sub
 
     Private Sub PictureBox5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox5.Click
-        Me.Hide()
+        Cursor = Cursors.WaitCursor
         Print.Show()
+        Me.Hide()
+        Cursor = Cursors.Default
+
     End Sub
 
     Private Sub TabFACULTY_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabFACULTY.Enter
@@ -436,5 +458,10 @@ Public Class Form1
             End Try
         End If
         LoadTable_BSCS()
+    End Sub
+
+    Private Sub PictureBox1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox1.DoubleClick
+        Configuration.Show()
+        Me.Hide()
     End Sub
 End Class
