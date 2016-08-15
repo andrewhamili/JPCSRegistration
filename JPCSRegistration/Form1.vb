@@ -28,7 +28,7 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Timer1.Enabled = True
+        'Timer1.Enabled = True
 
         MySQLConn.ConnectionString = connstring
         Dim query As String

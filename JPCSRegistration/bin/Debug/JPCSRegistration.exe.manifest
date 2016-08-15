@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JPCSRegistration.exe" size="1577984">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JPCSRegistration.exe" size="1581056">
       <assemblyIdentity name="JPCSRegistration" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Kc60D5y84yDgaed/ZzfEp1zgL58=</dsig:DigestValue>
+        <dsig:DigestValue>DcDWnJs0laJhUz47465hLeIJS64=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

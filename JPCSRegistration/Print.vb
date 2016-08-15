@@ -152,7 +152,7 @@ Public Class Print
 
         Try
             MySQLConn.Open()
-            query = "SELECT * FROM courseyearsectionlist"
+            query = "SELECT coyesec FROM " & eventtable & " ORDER BY coyesec DESC"
             comm = New MySqlCommand(query, MySQLConn)
             reader = comm.ExecuteReader
             While reader.Read

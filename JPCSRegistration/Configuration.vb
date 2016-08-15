@@ -40,4 +40,82 @@ Public Class Configuration
         Panel_newevent.Visible = False
         Panel_event.Visible = True
     End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        If MySQLConn.State = ConnectionState.Open Then
+            MySQLConn.Close()
+        End If
+        Dim query As String
+        Dim charactersAllowed As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890_"
+        Dim EventNameAndTableNameFusion As String = tbox_tablename.Text + tbox_eventname.Text
+
+        Dim newtablename As String = EventNameAndTableNameFusion
+        Dim Letter As String
+        Dim Change As Integer
+
+        For x As Integer = 0 To EventNameAndTableNameFusion.Length - 1
+            Letter = EventNameAndTableNameFusion.Substring(x, 1)
+            If charactersAllowed.Contains(Letter) = False Then
+                newtablename = newtablename.Replace(Letter, String.Empty)
+                Change = 1
+            End If
+        Next
+
+        MySQLConn.ConnectionString = connstring
+        Try
+            MySQLConn.Open()
+            query = "SELECT * FROM existingevents WHERE eventname=@eventname"
+            comm = New MySqlCommand(query, MySQLConn)
+            comm.Parameters.AddWithValue("eventname", tbox_eventname.Text)
+            reader = comm.ExecuteReader
+            Dim count As Integer = 0
+            While reader.Read
+                count += 1
+            End While
+            If count > 0 Then
+                MsgBox("The Event exists!. Please use a more specific Event Name", MsgBoxStyle.Critical, "")
+            Else
+                MySQLConn.Close()
+                MySQLConn.Open()
+                query = "INSERT INTO existingevents VALUES(@eventname, @eventdate, @eventtime, @eventlocation, @eventtable, 'I');CREATE TABLE " & newtablename & " like referencetableregistration"
+                comm = New MySqlCommand(query, MySQLConn)
+                comm.Parameters.AddWithValue("eventname", tbox_eventname.Text)
+                comm.Parameters.AddWithValue("eventdate", tbox_date.Text)
+                comm.Parameters.AddWithValue("eventtime", tbox_time.Text)
+                comm.Parameters.AddWithValue("eventlocation", tbox_location.Text)
+                comm.Parameters.AddWithValue("eventtable", newtablename)
+                reader = comm.ExecuteReader
+                MySQLConn.Close()
+                MsgBox("The event has been created successfully", MsgBoxStyle.Information, "Junior Philippine Computer Society")
+                Load_ExistingEvents()
+                Panel_newevent.Visible = False
+                Panel_event.Visible = True
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub btn_useevent_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_useevent.Click
+        If MySQLConn.State = ConnectionState.Open Then
+            MySQLConn.Close()
+        End If
+        Dim query As String
+        Try
+            MySQLConn.Open()
+            query = "UPDATE existingevents SET status='I';UPDATE existingevents SET status='A' WHERE eventname=@selectedevent"
+            comm = New MySqlCommand(query, MySQLConn)
+            comm.Parameters.AddWithValue("selectedevent", Listbox_existingevents.Text)
+            reader = comm.ExecuteReader
+            MySQLConn.Close()
+            MsgBox("The Current event has been successfully changed. The System Needs to be closed for the New event to be applied. You can Launch the System after it has automatically closed")
+            End
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            MySQLConn.Dispose()
+            End
+        End Try
+    End Sub
 End Class

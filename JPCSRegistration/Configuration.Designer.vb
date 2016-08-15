@@ -33,16 +33,17 @@ Partial Class Configuration
         Me.tbox_location = New System.Windows.Forms.TextBox()
         Me.tbox_tablename = New System.Windows.Forms.TextBox()
         Me.Panel_newevent = New System.Windows.Forms.Panel()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.lbl_currentevent = New System.Windows.Forms.Label()
-        Me.Listbox_existingevents = New System.Windows.Forms.ListBox()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_cancel = New System.Windows.Forms.Button()
         Me.Panel_event = New System.Windows.Forms.Panel()
         Me.btn_useevent = New System.Windows.Forms.Button()
         Me.btn_deleteevent = New System.Windows.Forms.Button()
         Me.btn_editevent = New System.Windows.Forms.Button()
         Me.btn_addevent = New System.Windows.Forms.Button()
-        Me.btn_cancel = New System.Windows.Forms.Button()
+        Me.Listbox_existingevents = New System.Windows.Forms.ListBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lbl_currentevent = New System.Windows.Forms.Label()
         Me.Panel_newevent.SuspendLayout()
         Me.Panel_event.SuspendLayout()
         Me.SuspendLayout()
@@ -132,6 +133,7 @@ Partial Class Configuration
         '
         'tbox_tablename
         '
+        Me.tbox_tablename.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.tbox_tablename.Location = New System.Drawing.Point(174, 152)
         Me.tbox_tablename.Name = "tbox_tablename"
         Me.tbox_tablename.Size = New System.Drawing.Size(189, 26)
@@ -140,7 +142,7 @@ Partial Class Configuration
         '
         'Panel_newevent
         '
-        Me.Panel_newevent.Controls.Add(Me.Panel_event)
+        Me.Panel_newevent.Controls.Add(Me.Button1)
         Me.Panel_newevent.Controls.Add(Me.btn_cancel)
         Me.Panel_newevent.Controls.Add(Me.Label1)
         Me.Panel_newevent.Controls.Add(Me.tbox_tablename)
@@ -152,53 +154,29 @@ Partial Class Configuration
         Me.Panel_newevent.Controls.Add(Me.tbox_date)
         Me.Panel_newevent.Controls.Add(Me.Label5)
         Me.Panel_newevent.Controls.Add(Me.tbox_eventname)
-        Me.Panel_newevent.Location = New System.Drawing.Point(12, 60)
+        Me.Panel_newevent.Location = New System.Drawing.Point(16, 44)
         Me.Panel_newevent.Name = "Panel_newevent"
         Me.Panel_newevent.Size = New System.Drawing.Size(372, 248)
         Me.Panel_newevent.TabIndex = 10
         Me.Panel_newevent.Visible = False
         '
-        'Label6
+        'Button1
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial Black", 12.0!)
-        Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(12, 18)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(132, 23)
-        Me.Label6.TabIndex = 11
-        Me.Label6.Text = "Current Event"
+        Me.Button1.Location = New System.Drawing.Point(235, 195)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(114, 37)
+        Me.Button1.TabIndex = 11
+        Me.Button1.Text = "Save"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'lbl_currentevent
+        'btn_cancel
         '
-        Me.lbl_currentevent.AutoSize = True
-        Me.lbl_currentevent.ForeColor = System.Drawing.Color.White
-        Me.lbl_currentevent.Location = New System.Drawing.Point(150, 21)
-        Me.lbl_currentevent.Name = "lbl_currentevent"
-        Me.lbl_currentevent.Size = New System.Drawing.Size(116, 18)
-        Me.lbl_currentevent.TabIndex = 12
-        Me.lbl_currentevent.Text = "lbl_currentevent"
-        '
-        'Listbox_existingevents
-        '
-        Me.Listbox_existingevents.FormattingEnabled = True
-        Me.Listbox_existingevents.ItemHeight = 18
-        Me.Listbox_existingevents.Location = New System.Drawing.Point(16, 35)
-        Me.Listbox_existingevents.Name = "Listbox_existingevents"
-        Me.Listbox_existingevents.Size = New System.Drawing.Size(201, 94)
-        Me.Listbox_existingevents.TabIndex = 13
-        Me.Listbox_existingevents.TabStop = False
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Arial Black", 12.0!)
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(12, 9)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(148, 23)
-        Me.Label7.TabIndex = 11
-        Me.Label7.Text = "Existing Events"
+        Me.btn_cancel.Location = New System.Drawing.Point(17, 195)
+        Me.btn_cancel.Name = "btn_cancel"
+        Me.btn_cancel.Size = New System.Drawing.Size(115, 37)
+        Me.btn_cancel.TabIndex = 10
+        Me.btn_cancel.Text = "Cancel"
+        Me.btn_cancel.UseVisualStyleBackColor = True
         '
         'Panel_event
         '
@@ -208,7 +186,7 @@ Partial Class Configuration
         Me.Panel_event.Controls.Add(Me.btn_addevent)
         Me.Panel_event.Controls.Add(Me.Listbox_existingevents)
         Me.Panel_event.Controls.Add(Me.Label7)
-        Me.Panel_event.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_event.Location = New System.Drawing.Point(287, 28)
         Me.Panel_event.Name = "Panel_event"
         Me.Panel_event.Size = New System.Drawing.Size(533, 248)
         Me.Panel_event.TabIndex = 14
@@ -253,14 +231,47 @@ Partial Class Configuration
         Me.btn_addevent.Text = "Add Event"
         Me.btn_addevent.UseVisualStyleBackColor = True
         '
-        'btn_cancel
+        'Listbox_existingevents
         '
-        Me.btn_cancel.Location = New System.Drawing.Point(17, 195)
-        Me.btn_cancel.Name = "btn_cancel"
-        Me.btn_cancel.Size = New System.Drawing.Size(115, 37)
-        Me.btn_cancel.TabIndex = 10
-        Me.btn_cancel.Text = "Cancel"
-        Me.btn_cancel.UseVisualStyleBackColor = True
+        Me.Listbox_existingevents.FormattingEnabled = True
+        Me.Listbox_existingevents.ItemHeight = 18
+        Me.Listbox_existingevents.Location = New System.Drawing.Point(16, 35)
+        Me.Listbox_existingevents.Name = "Listbox_existingevents"
+        Me.Listbox_existingevents.Size = New System.Drawing.Size(201, 94)
+        Me.Listbox_existingevents.TabIndex = 13
+        Me.Listbox_existingevents.TabStop = False
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Arial Black", 12.0!)
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(12, 9)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(148, 23)
+        Me.Label7.TabIndex = 11
+        Me.Label7.Text = "Existing Events"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Arial Black", 12.0!)
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(12, 18)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(132, 23)
+        Me.Label6.TabIndex = 11
+        Me.Label6.Text = "Current Event"
+        '
+        'lbl_currentevent
+        '
+        Me.lbl_currentevent.AutoSize = True
+        Me.lbl_currentevent.ForeColor = System.Drawing.Color.White
+        Me.lbl_currentevent.Location = New System.Drawing.Point(150, 21)
+        Me.lbl_currentevent.Name = "lbl_currentevent"
+        Me.lbl_currentevent.Size = New System.Drawing.Size(116, 18)
+        Me.lbl_currentevent.TabIndex = 12
+        Me.lbl_currentevent.Text = "lbl_currentevent"
         '
         'Configuration
         '
@@ -268,6 +279,7 @@ Partial Class Configuration
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(744, 382)
+        Me.Controls.Add(Me.Panel_event)
         Me.Controls.Add(Me.lbl_currentevent)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Panel_newevent)
@@ -305,4 +317,5 @@ Partial Class Configuration
     Friend WithEvents btn_editevent As System.Windows.Forms.Button
     Friend WithEvents btn_addevent As System.Windows.Forms.Button
     Friend WithEvents btn_cancel As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class
