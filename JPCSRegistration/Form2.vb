@@ -77,7 +77,7 @@ Public Class Form2
         Else
             Try
                 MySQLConn.Open()
-                query = "SELECT * FROM studentlist where studnum=@inputtedstudentnumber"
+                query = "SELECT * FROM " & eventtable & " where studnum=@inputtedstudentnumber"
                 comm = New MySqlCommand(query, MySQLConn)
                 comm.Parameters.AddWithValue("inputtedstudentnumber", txt_studnum.Text)
                 reader = comm.ExecuteReader
@@ -93,7 +93,7 @@ Public Class Form2
                     Try
                         MySQLConn.Close()
                         MySQLConn.Open()
-                        query = "INSERT INTO studentlist values(@fname, @mname, @lname, @coyesec, @studnum, @timein)"
+                        query = "INSERT INTO " & eventtable & " values(@fname, @mname, @lname, @coyesec, @studnum, @timein)"
                         comm = New MySqlCommand(query, MySQLConn)
                         comm.Parameters.AddWithValue("fname", txt_fname.Text)
                         comm.Parameters.AddWithValue("mname", txt_mname.Text)

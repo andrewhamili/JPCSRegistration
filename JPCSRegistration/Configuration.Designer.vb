@@ -33,7 +33,7 @@ Partial Class Configuration
         Me.tbox_location = New System.Windows.Forms.TextBox()
         Me.tbox_tablename = New System.Windows.Forms.TextBox()
         Me.Panel_newevent = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_save = New System.Windows.Forms.Button()
         Me.btn_cancel = New System.Windows.Forms.Button()
         Me.Panel_event = New System.Windows.Forms.Panel()
         Me.btn_useevent = New System.Windows.Forms.Button()
@@ -44,6 +44,14 @@ Partial Class Configuration
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.lbl_currentevent = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.lbl_eventname = New System.Windows.Forms.Label()
+        Me.lbl_eventdate = New System.Windows.Forms.Label()
+        Me.lbl_eventtime = New System.Windows.Forms.Label()
+        Me.lbl_eventlocation = New System.Windows.Forms.Label()
         Me.Panel_newevent.SuspendLayout()
         Me.Panel_event.SuspendLayout()
         Me.SuspendLayout()
@@ -142,7 +150,7 @@ Partial Class Configuration
         '
         'Panel_newevent
         '
-        Me.Panel_newevent.Controls.Add(Me.Button1)
+        Me.Panel_newevent.Controls.Add(Me.btn_save)
         Me.Panel_newevent.Controls.Add(Me.btn_cancel)
         Me.Panel_newevent.Controls.Add(Me.Label1)
         Me.Panel_newevent.Controls.Add(Me.tbox_tablename)
@@ -160,14 +168,14 @@ Partial Class Configuration
         Me.Panel_newevent.TabIndex = 10
         Me.Panel_newevent.Visible = False
         '
-        'Button1
+        'btn_save
         '
-        Me.Button1.Location = New System.Drawing.Point(235, 195)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(114, 37)
-        Me.Button1.TabIndex = 11
-        Me.Button1.Text = "Save"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn_save.Location = New System.Drawing.Point(235, 195)
+        Me.btn_save.Name = "btn_save"
+        Me.btn_save.Size = New System.Drawing.Size(114, 37)
+        Me.btn_save.TabIndex = 11
+        Me.btn_save.Text = "Save"
+        Me.btn_save.UseVisualStyleBackColor = True
         '
         'btn_cancel
         '
@@ -175,18 +183,27 @@ Partial Class Configuration
         Me.btn_cancel.Name = "btn_cancel"
         Me.btn_cancel.Size = New System.Drawing.Size(115, 37)
         Me.btn_cancel.TabIndex = 10
+        Me.btn_cancel.TabStop = False
         Me.btn_cancel.Text = "Cancel"
         Me.btn_cancel.UseVisualStyleBackColor = True
         '
         'Panel_event
         '
+        Me.Panel_event.Controls.Add(Me.lbl_eventlocation)
+        Me.Panel_event.Controls.Add(Me.lbl_eventtime)
+        Me.Panel_event.Controls.Add(Me.lbl_eventdate)
+        Me.Panel_event.Controls.Add(Me.lbl_eventname)
+        Me.Panel_event.Controls.Add(Me.Label11)
+        Me.Panel_event.Controls.Add(Me.Label10)
+        Me.Panel_event.Controls.Add(Me.Label9)
+        Me.Panel_event.Controls.Add(Me.Label8)
         Me.Panel_event.Controls.Add(Me.btn_useevent)
         Me.Panel_event.Controls.Add(Me.btn_deleteevent)
         Me.Panel_event.Controls.Add(Me.btn_editevent)
         Me.Panel_event.Controls.Add(Me.btn_addevent)
         Me.Panel_event.Controls.Add(Me.Listbox_existingevents)
         Me.Panel_event.Controls.Add(Me.Label7)
-        Me.Panel_event.Location = New System.Drawing.Point(287, 28)
+        Me.Panel_event.Location = New System.Drawing.Point(12, 52)
         Me.Panel_event.Name = "Panel_event"
         Me.Panel_event.Size = New System.Drawing.Size(533, 248)
         Me.Panel_event.TabIndex = 14
@@ -259,7 +276,7 @@ Partial Class Configuration
         Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(12, 18)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(132, 23)
+        Me.Label6.Size = New System.Drawing.Size(133, 23)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Current Event"
         '
@@ -272,6 +289,90 @@ Partial Class Configuration
         Me.lbl_currentevent.Size = New System.Drawing.Size(116, 18)
         Me.lbl_currentevent.TabIndex = 12
         Me.lbl_currentevent.Text = "lbl_currentevent"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(236, 39)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(50, 18)
+        Me.Label8.TabIndex = 18
+        Me.Label8.Text = "Name"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(236, 67)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(42, 18)
+        Me.Label9.TabIndex = 19
+        Me.Label9.Text = "Date"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(236, 99)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(42, 18)
+        Me.Label10.TabIndex = 20
+        Me.Label10.Text = "Time"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.ForeColor = System.Drawing.Color.White
+        Me.Label11.Location = New System.Drawing.Point(236, 128)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(68, 18)
+        Me.Label11.TabIndex = 21
+        Me.Label11.Text = "Location"
+        '
+        'lbl_eventname
+        '
+        Me.lbl_eventname.AutoSize = True
+        Me.lbl_eventname.ForeColor = System.Drawing.Color.White
+        Me.lbl_eventname.Location = New System.Drawing.Point(315, 39)
+        Me.lbl_eventname.Name = "lbl_eventname"
+        Me.lbl_eventname.Size = New System.Drawing.Size(108, 18)
+        Me.lbl_eventname.TabIndex = 22
+        Me.lbl_eventname.Text = "lbl_eventname"
+        Me.lbl_eventname.Visible = False
+        '
+        'lbl_eventdate
+        '
+        Me.lbl_eventdate.AutoSize = True
+        Me.lbl_eventdate.ForeColor = System.Drawing.Color.White
+        Me.lbl_eventdate.Location = New System.Drawing.Point(315, 67)
+        Me.lbl_eventdate.Name = "lbl_eventdate"
+        Me.lbl_eventdate.Size = New System.Drawing.Size(100, 18)
+        Me.lbl_eventdate.TabIndex = 23
+        Me.lbl_eventdate.Text = "lbl_eventdate"
+        Me.lbl_eventdate.Visible = False
+        '
+        'lbl_eventtime
+        '
+        Me.lbl_eventtime.AutoSize = True
+        Me.lbl_eventtime.ForeColor = System.Drawing.Color.White
+        Me.lbl_eventtime.Location = New System.Drawing.Point(315, 99)
+        Me.lbl_eventtime.Name = "lbl_eventtime"
+        Me.lbl_eventtime.Size = New System.Drawing.Size(99, 18)
+        Me.lbl_eventtime.TabIndex = 24
+        Me.lbl_eventtime.Text = "lbl_eventtime"
+        Me.lbl_eventtime.Visible = False
+        '
+        'lbl_eventlocation
+        '
+        Me.lbl_eventlocation.AutoSize = True
+        Me.lbl_eventlocation.ForeColor = System.Drawing.Color.White
+        Me.lbl_eventlocation.Location = New System.Drawing.Point(315, 128)
+        Me.lbl_eventlocation.Name = "lbl_eventlocation"
+        Me.lbl_eventlocation.Size = New System.Drawing.Size(123, 18)
+        Me.lbl_eventlocation.TabIndex = 25
+        Me.lbl_eventlocation.Text = "lbl_eventlocation"
+        Me.lbl_eventlocation.Visible = False
         '
         'Configuration
         '
@@ -317,5 +418,13 @@ Partial Class Configuration
     Friend WithEvents btn_editevent As System.Windows.Forms.Button
     Friend WithEvents btn_addevent As System.Windows.Forms.Button
     Friend WithEvents btn_cancel As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btn_save As System.Windows.Forms.Button
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents lbl_eventlocation As Label
+    Friend WithEvents lbl_eventtime As Label
+    Friend WithEvents lbl_eventdate As Label
+    Friend WithEvents lbl_eventname As Label
 End Class
