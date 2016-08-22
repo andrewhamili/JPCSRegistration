@@ -36,6 +36,14 @@ Partial Class Configuration
         Me.btn_save = New System.Windows.Forms.Button()
         Me.btn_cancel = New System.Windows.Forms.Button()
         Me.Panel_event = New System.Windows.Forms.Panel()
+        Me.lbl_eventlocation = New System.Windows.Forms.Label()
+        Me.lbl_eventtime = New System.Windows.Forms.Label()
+        Me.lbl_eventdate = New System.Windows.Forms.Label()
+        Me.lbl_eventname = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.btn_useevent = New System.Windows.Forms.Button()
         Me.btn_deleteevent = New System.Windows.Forms.Button()
         Me.btn_editevent = New System.Windows.Forms.Button()
@@ -44,14 +52,6 @@ Partial Class Configuration
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.lbl_currentevent = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.lbl_eventname = New System.Windows.Forms.Label()
-        Me.lbl_eventdate = New System.Windows.Forms.Label()
-        Me.lbl_eventtime = New System.Windows.Forms.Label()
-        Me.lbl_eventlocation = New System.Windows.Forms.Label()
         Me.Panel_newevent.SuspendLayout()
         Me.Panel_event.SuspendLayout()
         Me.SuspendLayout()
@@ -174,6 +174,7 @@ Partial Class Configuration
         Me.btn_save.Name = "btn_save"
         Me.btn_save.Size = New System.Drawing.Size(114, 37)
         Me.btn_save.TabIndex = 11
+        Me.btn_save.TabStop = False
         Me.btn_save.Text = "Save"
         Me.btn_save.UseVisualStyleBackColor = True
         '
@@ -207,6 +208,90 @@ Partial Class Configuration
         Me.Panel_event.Name = "Panel_event"
         Me.Panel_event.Size = New System.Drawing.Size(533, 248)
         Me.Panel_event.TabIndex = 14
+        '
+        'lbl_eventlocation
+        '
+        Me.lbl_eventlocation.AutoSize = True
+        Me.lbl_eventlocation.ForeColor = System.Drawing.Color.White
+        Me.lbl_eventlocation.Location = New System.Drawing.Point(315, 128)
+        Me.lbl_eventlocation.Name = "lbl_eventlocation"
+        Me.lbl_eventlocation.Size = New System.Drawing.Size(123, 18)
+        Me.lbl_eventlocation.TabIndex = 25
+        Me.lbl_eventlocation.Text = "lbl_eventlocation"
+        Me.lbl_eventlocation.Visible = False
+        '
+        'lbl_eventtime
+        '
+        Me.lbl_eventtime.AutoSize = True
+        Me.lbl_eventtime.ForeColor = System.Drawing.Color.White
+        Me.lbl_eventtime.Location = New System.Drawing.Point(315, 99)
+        Me.lbl_eventtime.Name = "lbl_eventtime"
+        Me.lbl_eventtime.Size = New System.Drawing.Size(99, 18)
+        Me.lbl_eventtime.TabIndex = 24
+        Me.lbl_eventtime.Text = "lbl_eventtime"
+        Me.lbl_eventtime.Visible = False
+        '
+        'lbl_eventdate
+        '
+        Me.lbl_eventdate.AutoSize = True
+        Me.lbl_eventdate.ForeColor = System.Drawing.Color.White
+        Me.lbl_eventdate.Location = New System.Drawing.Point(315, 67)
+        Me.lbl_eventdate.Name = "lbl_eventdate"
+        Me.lbl_eventdate.Size = New System.Drawing.Size(100, 18)
+        Me.lbl_eventdate.TabIndex = 23
+        Me.lbl_eventdate.Text = "lbl_eventdate"
+        Me.lbl_eventdate.Visible = False
+        '
+        'lbl_eventname
+        '
+        Me.lbl_eventname.AutoSize = True
+        Me.lbl_eventname.ForeColor = System.Drawing.Color.White
+        Me.lbl_eventname.Location = New System.Drawing.Point(315, 39)
+        Me.lbl_eventname.Name = "lbl_eventname"
+        Me.lbl_eventname.Size = New System.Drawing.Size(108, 18)
+        Me.lbl_eventname.TabIndex = 22
+        Me.lbl_eventname.Text = "lbl_eventname"
+        Me.lbl_eventname.Visible = False
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.ForeColor = System.Drawing.Color.White
+        Me.Label11.Location = New System.Drawing.Point(236, 128)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(68, 18)
+        Me.Label11.TabIndex = 21
+        Me.Label11.Text = "Location"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(236, 99)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(42, 18)
+        Me.Label10.TabIndex = 20
+        Me.Label10.Text = "Time"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(236, 67)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(42, 18)
+        Me.Label9.TabIndex = 19
+        Me.Label9.Text = "Date"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(236, 39)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(50, 18)
+        Me.Label8.TabIndex = 18
+        Me.Label8.Text = "Name"
         '
         'btn_useevent
         '
@@ -289,90 +374,6 @@ Partial Class Configuration
         Me.lbl_currentevent.Size = New System.Drawing.Size(116, 18)
         Me.lbl_currentevent.TabIndex = 12
         Me.lbl_currentevent.Text = "lbl_currentevent"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(236, 39)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(50, 18)
-        Me.Label8.TabIndex = 18
-        Me.Label8.Text = "Name"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(236, 67)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(42, 18)
-        Me.Label9.TabIndex = 19
-        Me.Label9.Text = "Date"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(236, 99)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(42, 18)
-        Me.Label10.TabIndex = 20
-        Me.Label10.Text = "Time"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(236, 128)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(68, 18)
-        Me.Label11.TabIndex = 21
-        Me.Label11.Text = "Location"
-        '
-        'lbl_eventname
-        '
-        Me.lbl_eventname.AutoSize = True
-        Me.lbl_eventname.ForeColor = System.Drawing.Color.White
-        Me.lbl_eventname.Location = New System.Drawing.Point(315, 39)
-        Me.lbl_eventname.Name = "lbl_eventname"
-        Me.lbl_eventname.Size = New System.Drawing.Size(108, 18)
-        Me.lbl_eventname.TabIndex = 22
-        Me.lbl_eventname.Text = "lbl_eventname"
-        Me.lbl_eventname.Visible = False
-        '
-        'lbl_eventdate
-        '
-        Me.lbl_eventdate.AutoSize = True
-        Me.lbl_eventdate.ForeColor = System.Drawing.Color.White
-        Me.lbl_eventdate.Location = New System.Drawing.Point(315, 67)
-        Me.lbl_eventdate.Name = "lbl_eventdate"
-        Me.lbl_eventdate.Size = New System.Drawing.Size(100, 18)
-        Me.lbl_eventdate.TabIndex = 23
-        Me.lbl_eventdate.Text = "lbl_eventdate"
-        Me.lbl_eventdate.Visible = False
-        '
-        'lbl_eventtime
-        '
-        Me.lbl_eventtime.AutoSize = True
-        Me.lbl_eventtime.ForeColor = System.Drawing.Color.White
-        Me.lbl_eventtime.Location = New System.Drawing.Point(315, 99)
-        Me.lbl_eventtime.Name = "lbl_eventtime"
-        Me.lbl_eventtime.Size = New System.Drawing.Size(99, 18)
-        Me.lbl_eventtime.TabIndex = 24
-        Me.lbl_eventtime.Text = "lbl_eventtime"
-        Me.lbl_eventtime.Visible = False
-        '
-        'lbl_eventlocation
-        '
-        Me.lbl_eventlocation.AutoSize = True
-        Me.lbl_eventlocation.ForeColor = System.Drawing.Color.White
-        Me.lbl_eventlocation.Location = New System.Drawing.Point(315, 128)
-        Me.lbl_eventlocation.Name = "lbl_eventlocation"
-        Me.lbl_eventlocation.Size = New System.Drawing.Size(123, 18)
-        Me.lbl_eventlocation.TabIndex = 25
-        Me.lbl_eventlocation.Text = "lbl_eventlocation"
-        Me.lbl_eventlocation.Visible = False
         '
         'Configuration
         '

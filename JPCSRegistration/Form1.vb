@@ -28,7 +28,7 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'Timer1.Enabled = True
+        Timer1.Enabled = True
 
         MySQLConn.ConnectionString = connstring
         Dim query As String
@@ -320,7 +320,7 @@ Public Class Form1
         If ans = 6 Then
             Try
                 MySQLConn.Open()
-                query = "DELETE FROM studentlist WHERE studnum=@inputtedstudentnumber"
+                query = "DELETE FROM " & eventtable & " WHERE studnum=@inputtedstudentnumber"
                 comm = New MySqlCommand(query, MySQLConn)
                 comm.Parameters.AddWithValue("inputtedstudentnumber", studentnum)
                 reader = comm.ExecuteReader
@@ -361,7 +361,7 @@ Public Class Form1
         If ans = 6 Then
             Try
                 MySQLConn.Open()
-                query = "DELETE FROM studentlist WHERE studnum=@inputtedstudentnumber"
+                query = "DELETE FROM " & eventtable & " WHERE studnum=@inputtedstudentnumber"
                 comm = New MySqlCommand(query, MySQLConn)
                 comm.Parameters.AddWithValue("inputtedstudentnumber", studentnum)
                 reader = comm.ExecuteReader
@@ -402,7 +402,7 @@ Public Class Form1
         If ans = 6 Then
             Try
                 MySQLConn.Open()
-                query = "DELETE FROM studentlist WHERE studnum=@inputtedstudentnumber"
+                query = "DELETE FROM " & eventtable & " WHERE studnum=@inputtedstudentnumber"
                 comm = New MySqlCommand(query, MySQLConn)
                 comm.Parameters.AddWithValue("inputtedstudentnumber", studentnum)
                 reader = comm.ExecuteReader
@@ -444,7 +444,7 @@ Public Class Form1
         If ans = 6 Then
             Try
                 MySQLConn.Open()
-                query = "DELETE FROM studentlist WHERE studnum=@inputtedstudentnumber"
+                query = "DELETE FROM " & eventtable & " WHERE studnum=@inputtedstudentnumber"
                 comm = New MySqlCommand(query, MySQLConn)
                 comm.Parameters.AddWithValue("inputtedstudentnumber", studentnum)
                 reader = comm.ExecuteReader

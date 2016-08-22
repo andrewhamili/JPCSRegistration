@@ -49,7 +49,7 @@ Public Class Configuration
         End If
         Dim query As String
         Dim charactersAllowed As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890_"
-        Dim EventNameAndTableNameFusion As String = tbox_tablename.Text + tbox_eventname.Text
+        Dim EventNameAndTableNameFusion As String = tbox_tablename.Text.ToLower + tbox_eventname.Text.ToLower
 
         Dim newtablename As String = EventNameAndTableNameFusion
         Dim Letter As String
@@ -100,52 +100,69 @@ Public Class Configuration
     End Sub
 
     Private Sub btn_useevent_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_useevent.Click
-        If MySQLConn.State = ConnectionState.Open Then
-            MySQLConn.Close()
+        If Listbox_existingevents.Text <> eventname Then
+            If Listbox_existingevents.Text <> "" Then
+                If MySQLConn.State = ConnectionState.Open Then
+                    MySQLConn.Close()
+                End If
+                Dim query As String
+                Try
+                    MySQLConn.Open()
+                    query = "UPDATE existingevents SET status='I';UPDATE existingevents SET status='A' WHERE eventname=@selectedevent"
+                    comm = New MySqlCommand(query, MySQLConn)
+                    comm.Parameters.AddWithValue("selectedevent", Listbox_existingevents.Text)
+                    reader = comm.ExecuteReader
+                    MySQLConn.Close()
+                    MsgBox("The Current event has been successfully changed. The System Needs to be closed for the New event to be applied. You can Launch the System after it has automatically closed", MsgBoxStyle.Information, "Junior Philippine Computer Society")
+                    End
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                Finally
+                    MySQLConn.Dispose()
+
+
+                End Try
+            Else
+                MsgBox("You have not selected an event!", MsgBoxStyle.Exclamation, "Junior Philippine Computer Society")
+            End If
+        Else
+            MsgBox("The selected event is already the active event!", MsgBoxStyle.Critical, "Junior Philippine Computer Society")
         End If
-        Dim query As String
-        Try
-            MySQLConn.Open()
-            query = "UPDATE existingevents SET status='I';UPDATE existingevents SET status='A' WHERE eventname=@selectedevent"
-            comm = New MySqlCommand(query, MySQLConn)
-            comm.Parameters.AddWithValue("selectedevent", Listbox_existingevents.Text)
-            reader = comm.ExecuteReader
-            MySQLConn.Close()
-            MsgBox("The Current event has been successfully changed. The System Needs to be closed for the New event to be applied. You can Launch the System after it has automatically closed")
-            End
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        Finally
-            MySQLConn.Dispose()
-            End
-        End Try
+
+
     End Sub
 
     Private Sub btn_deleteevent_Click(sender As Object, e As EventArgs) Handles btn_deleteevent.Click
         If MySQLConn.State = ConnectionState.Open Then
             MySQLConn.Close()
         End If
-        Dim query As String
-        If Listbox_existingevents.Text <> eventname Then
-            Try
-                MySQLConn.Open()
-                query = "DELETE FROM existingevents WHERE eventname=@selectedevent;DROP TABLE " & pendingeventtablename & ""
-                comm = New MySqlCommand(query, MySQLConn)
-                comm.Parameters.AddWithValue("selectedevent", Listbox_existingevents.Text)
-                reader = comm.ExecuteReader
-                MySQLConn.Close()
-                MsgBox("The Event has been successfully deleted.")
-                Listbox_existingevents.Items.Remove(Listbox_existingevents.Text)
-                lbl_eventname.Visible = False
-                lbl_eventdate.Visible = False
-                lbl_eventtime.Visible = False
-                lbl_eventlocation.Visible = False
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
+
+        If Listbox_existingevents.Text <> "" Then
+            Dim query As String
+            If Listbox_existingevents.Text <> eventname Then
+                Try
+                    MySQLConn.Open()
+                    query = "DELETE FROM existingevents WHERE eventname=@selectedevent;DROP TABLE " & pendingeventtablename & ""
+                    comm = New MySqlCommand(query, MySQLConn)
+                    comm.Parameters.AddWithValue("selectedevent", Listbox_existingevents.Text)
+                    reader = comm.ExecuteReader
+                    MySQLConn.Close()
+                    MsgBox("The Event has been successfully deleted.")
+                    Listbox_existingevents.Items.Remove(Listbox_existingevents.Text)
+                    lbl_eventname.Visible = False
+                    lbl_eventdate.Visible = False
+                    lbl_eventtime.Visible = False
+                    lbl_eventlocation.Visible = False
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+            Else
+                MsgBox("You cannot delete an active event!", MsgBoxStyle.Critical, "Junior Philippine Computer Society")
+            End If
         Else
-            MsgBox("You cannot delete an active event!", MsgBoxStyle.Critical, "Junior Philippine Computer Society")
+            MsgBox("You have not selected an event!", MsgBoxStyle.Exclamation, "Junior Philippine Computer Society")
         End If
+
     End Sub
 
     Private Sub Listbox_existingevents_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Listbox_existingevents.SelectedIndexChanged
