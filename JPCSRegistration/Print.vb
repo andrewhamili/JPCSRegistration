@@ -93,7 +93,7 @@ Public Class Print
             Dim edate As New ReportParameter("eventdate", eventdate)
             Dim etime As New ReportParameter("eventtime", eventtime)
             Dim header As New ReportParameter("course", head)
-            query = "SELECT fname, mname, lname, studnum, timein, coyesec from " & eventtable & " where coyesec like '%" & ComboBoxConditions.Text & "%'"
+            query = "SELECT fname, mname, lname, studnum, timein, coyesec from " & eventtable & " where coyesec like '%" & ComboBoxConditions.Text & "%' ORDER BY coyosec, lname ASC"
             Dim adapter As New MySqlDataAdapter
             Dim ds As New DataSet1
             adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
@@ -120,7 +120,7 @@ Public Class Print
             Dim edate As New ReportParameter("eventdate", eventdate)
             Dim etime As New ReportParameter("eventtime", eventtime)
             Dim header As New ReportParameter("course", head)
-            query = "SELECT fname, mname, lname, studnum, timein, coyesec from " & eventtable & " where coyesec=@comboboxcourse"
+            query = "SELECT fname, mname, lname, studnum, timein, coyesec from " & eventtable & " where coyesec=@comboboxcourse ORDER BY lname, timein ASC"
             Dim adapter As New MySqlDataAdapter
             Dim ds As New DataSet1
             adapter.SelectCommand = New MySqlCommand(query, MySQLConn)

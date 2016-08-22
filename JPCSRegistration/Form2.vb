@@ -54,6 +54,8 @@ Public Class Form2
     Private Sub Form2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         CancelButton = btn_cancel
         AcceptButton = Button1
+        Me.Text = eventtable
+
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -93,7 +95,7 @@ Public Class Form2
                     Try
                         MySQLConn.Close()
                         MySQLConn.Open()
-                        query = "INSERT INTO " & eventlocation & " values(@fname, @mname, @lname, @coyesec, @studnum, @timein)"
+                        query = "INSERT INTO " & eventtable & " values(@fname, @mname, @lname, @coyesec, @studnum, @timein)"
                         comm = New MySqlCommand(query, MySQLConn)
                         comm.Parameters.AddWithValue("fname", txt_fname.Text)
                         comm.Parameters.AddWithValue("mname", txt_mname.Text)
@@ -103,7 +105,7 @@ Public Class Form2
                         comm.Parameters.AddWithValue("timein", timenow)
                         reader = comm.ExecuteReader
                         MySQLConn.Close()
-                        MsgBox("You have succesfully registerd. You may now proceeed to " & eventtable & ".", MsgBoxStyle.Information, "Registration")
+                        MsgBox("You have succesfully registerd. You may now proceeed to " & eventlocation & ".", MsgBoxStyle.Information, "Registration")
 
                         txt_fname.Focus()
                         If cbox_cys.Text.Contains("BSIT") Then
