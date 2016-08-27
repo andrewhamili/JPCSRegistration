@@ -1,31 +1,28 @@
 ﻿Public Class Server
 
+
+    Public CheckServer As Boolean = True
+
     Private Sub Server_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        'Dim pName As String = "mysqld.exe"
-        'Dim psList() As Process
-        'Dim MySQLServerCheck As Boolean = False
-        'Try
-        '    psList = Process.GetProcessesByName(pName)
 
-        '    For Each p As Process In psList
-        '        If (pName = p.ProcessName) Then
-        '            MsgBox("Process Found")
-        '            MySQLServerCheck = True
-        '        End If
-        '    Next p
-
-        'Catch ex As Exception
-        '    MsgBox(ex.Message)
-        'End Try
-
-        'If MySQLServerCheck = True Then
-        'Else
-        '    MsgBox("The MySQL Server(mysqld.exe does not exist in the list of running processes in this Computer. This System cannot run without it. System will exit now", MsgBoxStyle.Critical, "Junior Philippine Computer Society")
-        'End If
 
         AcceptButton = Button1
         tboxServer.Text = My.Settings.server
+
+        MySQLConn.ConnectionString = connstring
+
+        Try
+            MySQLConn.Open()
+            MySQLConn.Close()
+            Me.Dispose()
+            Form1.Show()
+        Catch ex As Exception
+            MsgBox("Database Server Authentication needed!", MsgBoxStyle.Information, "Junior Philippine Computer Society")
+            CheckServer = False
+        Finally
+            MySQLConn.Dispose()
+        End Try
 
     End Sub
 
@@ -39,7 +36,13 @@
         My.Settings.username = tbox_server_username.Text
         My.Settings.password = tbox_server_password.Text
         My.Settings.Save()
+        If CheckServer = False Then
+            Application.Restart()
+        End If
         Me.Dispose()
         Form1.Show()
+    End Sub
+
+    Public Sub Check_old_data()
     End Sub
 End Class

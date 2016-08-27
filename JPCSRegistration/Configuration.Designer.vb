@@ -162,7 +162,7 @@ Partial Class Configuration
         Me.Panel_newevent.Controls.Add(Me.tbox_date)
         Me.Panel_newevent.Controls.Add(Me.Label5)
         Me.Panel_newevent.Controls.Add(Me.tbox_eventname)
-        Me.Panel_newevent.Location = New System.Drawing.Point(16, 44)
+        Me.Panel_newevent.Location = New System.Drawing.Point(240, 44)
         Me.Panel_newevent.Name = "Panel_newevent"
         Me.Panel_newevent.Size = New System.Drawing.Size(372, 248)
         Me.Panel_newevent.TabIndex = 10
@@ -361,7 +361,7 @@ Partial Class Configuration
         Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(12, 18)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(133, 23)
+        Me.Label6.Size = New System.Drawing.Size(132, 23)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Current Event"
         '
@@ -386,7 +386,9 @@ Partial Class Configuration
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Panel_newevent)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MinimizeBox = False
         Me.Name = "Configuration"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Configuration"

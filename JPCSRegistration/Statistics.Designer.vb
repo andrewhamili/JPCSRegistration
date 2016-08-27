@@ -28,11 +28,15 @@ Partial Class Statistics
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.lbl_bsit_total = New System.Windows.Forms.Label()
         Me.lbl_bsit4a = New System.Windows.Forms.Label()
         Me.lbl_bsit2a = New System.Windows.Forms.Label()
         Me.lbl_bsit3a = New System.Windows.Forms.Label()
         Me.lbl_bsit1a = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.lbl_bscs_total = New System.Windows.Forms.Label()
         Me.lbl_bscs4a = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.lbl_bscs2a = New System.Windows.Forms.Label()
@@ -42,6 +46,9 @@ Partial Class Statistics
         Me.lbl_bscs1a = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.lbl_bscpe_total = New System.Windows.Forms.Label()
+        Me.lbl_bscpe5a = New System.Windows.Forms.Label()
         Me.lbl_bscpe4a = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -51,13 +58,8 @@ Partial Class Statistics
         Me.lbl_bscpe3a = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.lbl_bscpe1a = New System.Windows.Forms.Label()
-        Me.lbl_bscpe5a = New System.Windows.Forms.Label()
-        Me.lbl_bsit_total = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.lbl_bscs_total = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.lbl_bscpe_total = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
+        Me.lbl_total = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -70,7 +72,7 @@ Partial Class Statistics
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(6, 31)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 23)
+        Me.Label1.Size = New System.Drawing.Size(80, 23)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "BSIT-1A"
         '
@@ -79,7 +81,7 @@ Partial Class Statistics
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 16.0!)
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(575, 24)
+        Me.Label2.Location = New System.Drawing.Point(442, 9)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(114, 25)
         Me.Label2.TabIndex = 1
@@ -92,7 +94,7 @@ Partial Class Statistics
         Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(6, 65)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(79, 23)
+        Me.Label3.Size = New System.Drawing.Size(80, 23)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "BSIT-2A"
         '
@@ -103,7 +105,7 @@ Partial Class Statistics
         Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(6, 98)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(79, 23)
+        Me.Label4.Size = New System.Drawing.Size(80, 23)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "BSIT-3A"
         '
@@ -114,7 +116,7 @@ Partial Class Statistics
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(6, 134)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(79, 23)
+        Me.Label5.Size = New System.Drawing.Size(80, 23)
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "BSIT-4A"
         '
@@ -132,12 +134,31 @@ Partial Class Statistics
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(154, 89)
+        Me.GroupBox1.Location = New System.Drawing.Point(36, 53)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(290, 279)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "BSIT"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label16.Location = New System.Drawing.Point(6, 242)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(56, 23)
+        Me.Label16.TabIndex = 4
+        Me.Label16.Text = "Total"
+        '
+        'lbl_bsit_total
+        '
+        Me.lbl_bsit_total.AutoSize = True
+        Me.lbl_bsit_total.Location = New System.Drawing.Point(67, 246)
+        Me.lbl_bsit_total.Name = "lbl_bsit_total"
+        Me.lbl_bsit_total.Size = New System.Drawing.Size(106, 19)
+        Me.lbl_bsit_total.TabIndex = 3
+        Me.lbl_bsit_total.Text = "lbl_bsit_total"
         '
         'lbl_bsit4a
         '
@@ -189,12 +210,31 @@ Partial Class Statistics
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.White
-        Me.GroupBox2.Location = New System.Drawing.Point(471, 89)
+        Me.GroupBox2.Location = New System.Drawing.Point(367, 53)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(290, 279)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "BSCS"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label17.Location = New System.Drawing.Point(6, 242)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(56, 23)
+        Me.Label17.TabIndex = 4
+        Me.Label17.Text = "Total"
+        '
+        'lbl_bscs_total
+        '
+        Me.lbl_bscs_total.AutoSize = True
+        Me.lbl_bscs_total.Location = New System.Drawing.Point(67, 246)
+        Me.lbl_bscs_total.Name = "lbl_bscs_total"
+        Me.lbl_bscs_total.Size = New System.Drawing.Size(115, 19)
+        Me.lbl_bscs_total.TabIndex = 3
+        Me.lbl_bscs_total.Text = "lbl_bscs_total"
         '
         'lbl_bscs4a
         '
@@ -292,12 +332,40 @@ Partial Class Statistics
         Me.GroupBox3.Controls.Add(Me.lbl_bscpe1a)
         Me.GroupBox3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.ForeColor = System.Drawing.Color.White
-        Me.GroupBox3.Location = New System.Drawing.Point(783, 89)
+        Me.GroupBox3.Location = New System.Drawing.Point(701, 53)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(290, 279)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "BSCPE"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label19.Location = New System.Drawing.Point(6, 242)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(56, 23)
+        Me.Label19.TabIndex = 4
+        Me.Label19.Text = "Total"
+        '
+        'lbl_bscpe_total
+        '
+        Me.lbl_bscpe_total.AutoSize = True
+        Me.lbl_bscpe_total.Location = New System.Drawing.Point(67, 246)
+        Me.lbl_bscpe_total.Name = "lbl_bscpe_total"
+        Me.lbl_bscpe_total.Size = New System.Drawing.Size(125, 19)
+        Me.lbl_bscpe_total.TabIndex = 3
+        Me.lbl_bscpe_total.Text = "lbl_bscpe_total"
+        '
+        'lbl_bscpe5a
+        '
+        Me.lbl_bscpe5a.AutoSize = True
+        Me.lbl_bscpe5a.Location = New System.Drawing.Point(119, 170)
+        Me.lbl_bscpe5a.Name = "lbl_bscpe5a"
+        Me.lbl_bscpe5a.Size = New System.Drawing.Size(101, 19)
+        Me.lbl_bscpe5a.TabIndex = 2
+        Me.lbl_bscpe5a.Text = "lbl_bscpe5a"
         '
         'lbl_bscpe4a
         '
@@ -390,83 +458,42 @@ Partial Class Statistics
         Me.lbl_bscpe1a.TabIndex = 1
         Me.lbl_bscpe1a.Text = "lbl_bscpe1a"
         '
-        'lbl_bscpe5a
+        'lbl_total
         '
-        Me.lbl_bscpe5a.AutoSize = True
-        Me.lbl_bscpe5a.Location = New System.Drawing.Point(119, 170)
-        Me.lbl_bscpe5a.Name = "lbl_bscpe5a"
-        Me.lbl_bscpe5a.Size = New System.Drawing.Size(101, 19)
-        Me.lbl_bscpe5a.TabIndex = 2
-        Me.lbl_bscpe5a.Text = "lbl_bscpe5a"
+        Me.lbl_total.AutoSize = True
+        Me.lbl_total.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_total.ForeColor = System.Drawing.Color.White
+        Me.lbl_total.Location = New System.Drawing.Point(473, 350)
+        Me.lbl_total.Name = "lbl_total"
+        Me.lbl_total.Size = New System.Drawing.Size(121, 32)
+        Me.lbl_total.TabIndex = 3
+        Me.lbl_total.Text = "lbl_total"
         '
-        'lbl_bsit_total
+        'Label10
         '
-        Me.lbl_bsit_total.AutoSize = True
-        Me.lbl_bsit_total.Location = New System.Drawing.Point(67, 246)
-        Me.lbl_bsit_total.Name = "lbl_bsit_total"
-        Me.lbl_bsit_total.Size = New System.Drawing.Size(106, 19)
-        Me.lbl_bsit_total.TabIndex = 3
-        Me.lbl_bsit_total.Text = "lbl_bsit_total"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label16.Location = New System.Drawing.Point(6, 242)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(55, 23)
-        Me.Label16.TabIndex = 4
-        Me.Label16.Text = "Total"
-        '
-        'lbl_bscs_total
-        '
-        Me.lbl_bscs_total.AutoSize = True
-        Me.lbl_bscs_total.Location = New System.Drawing.Point(67, 246)
-        Me.lbl_bscs_total.Name = "lbl_bscs_total"
-        Me.lbl_bscs_total.Size = New System.Drawing.Size(115, 19)
-        Me.lbl_bscs_total.TabIndex = 3
-        Me.lbl_bscs_total.Text = "lbl_bscs_total"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label17.Location = New System.Drawing.Point(6, 242)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(55, 23)
-        Me.Label17.TabIndex = 4
-        Me.Label17.Text = "Total"
-        '
-        'lbl_bscpe_total
-        '
-        Me.lbl_bscpe_total.AutoSize = True
-        Me.lbl_bscpe_total.Location = New System.Drawing.Point(67, 246)
-        Me.lbl_bscpe_total.Name = "lbl_bscpe_total"
-        Me.lbl_bscpe_total.Size = New System.Drawing.Size(125, 19)
-        Me.lbl_bscpe_total.TabIndex = 3
-        Me.lbl_bscpe_total.Text = "lbl_bscpe_total"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label19.Location = New System.Drawing.Point(6, 242)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(55, 23)
-        Me.Label19.TabIndex = 4
-        Me.Label19.Text = "Total"
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(387, 350)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(80, 32)
+        Me.Label10.TabIndex = 4
+        Me.Label10.Text = "Total"
         '
         'Statistics
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1253, 464)
+        Me.ClientSize = New System.Drawing.Size(1024, 401)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.lbl_total)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label2)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -518,4 +545,6 @@ Partial Class Statistics
     Friend WithEvents lbl_bscs_total As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents lbl_bscpe_total As System.Windows.Forms.Label
+    Friend WithEvents lbl_total As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
 End Class

@@ -23,10 +23,10 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lbl_eventdate = New System.Windows.Forms.Label()
@@ -50,6 +50,7 @@ Partial Class Form1
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabBSIT.SuspendLayout()
         CType(Me.DataGridBSIT, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -142,8 +143,8 @@ Partial Class Form1
         'TabControl1
         '
         Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabBSIT)
         Me.TabControl1.Controls.Add(Me.TabBSCS)
         Me.TabControl1.Controls.Add(Me.TabBSCPE)
@@ -151,7 +152,7 @@ Partial Class Form1
         Me.TabControl1.Location = New System.Drawing.Point(1, 276)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1297, 297)
+        Me.TabControl1.Size = New System.Drawing.Size(1297, 298)
         Me.TabControl1.TabIndex = 10
         '
         'TabBSIT
@@ -161,7 +162,7 @@ Partial Class Form1
         Me.TabBSIT.Location = New System.Drawing.Point(4, 27)
         Me.TabBSIT.Name = "TabBSIT"
         Me.TabBSIT.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabBSIT.Size = New System.Drawing.Size(1289, 266)
+        Me.TabBSIT.Size = New System.Drawing.Size(1289, 267)
         Me.TabBSIT.TabIndex = 0
         Me.TabBSIT.Text = "BSIT"
         '
@@ -173,31 +174,31 @@ Partial Class Form1
         Me.DataGridBSIT.AllowUserToResizeRows = False
         Me.DataGridBSIT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridBSIT.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 12.0!)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridBSIT.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Arial", 12.0!)
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridBSIT.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridBSIT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridBSIT.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridBSIT.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DataGridBSIT.Location = New System.Drawing.Point(3, 3)
         Me.DataGridBSIT.Name = "DataGridBSIT"
         Me.DataGridBSIT.ReadOnly = True
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 12.0!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridBSIT.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial", 12.0!)
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridBSIT.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridBSIT.RowHeadersVisible = False
         Me.DataGridBSIT.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridBSIT.Size = New System.Drawing.Size(1283, 260)
+        Me.DataGridBSIT.Size = New System.Drawing.Size(1283, 261)
         Me.DataGridBSIT.TabIndex = 0
         '
         'TabBSCS
@@ -207,7 +208,7 @@ Partial Class Form1
         Me.TabBSCS.Location = New System.Drawing.Point(4, 27)
         Me.TabBSCS.Name = "TabBSCS"
         Me.TabBSCS.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabBSCS.Size = New System.Drawing.Size(1289, 266)
+        Me.TabBSCS.Size = New System.Drawing.Size(1289, 267)
         Me.TabBSCS.TabIndex = 1
         Me.TabBSCS.Text = "BSCS"
         '
@@ -219,14 +220,14 @@ Partial Class Form1
         Me.DataGridBSCS.AllowUserToResizeRows = False
         Me.DataGridBSCS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridBSCS.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 12.0!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridBSCS.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Arial", 12.0!)
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridBSCS.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridBSCS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridBSCS.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridBSCS.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
@@ -235,7 +236,7 @@ Partial Class Form1
         Me.DataGridBSCS.ReadOnly = True
         Me.DataGridBSCS.RowHeadersVisible = False
         Me.DataGridBSCS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridBSCS.Size = New System.Drawing.Size(1283, 260)
+        Me.DataGridBSCS.Size = New System.Drawing.Size(1283, 261)
         Me.DataGridBSCS.TabIndex = 0
         '
         'TabBSCPE
@@ -245,7 +246,7 @@ Partial Class Form1
         Me.TabBSCPE.Location = New System.Drawing.Point(4, 27)
         Me.TabBSCPE.Name = "TabBSCPE"
         Me.TabBSCPE.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabBSCPE.Size = New System.Drawing.Size(1289, 266)
+        Me.TabBSCPE.Size = New System.Drawing.Size(1289, 267)
         Me.TabBSCPE.TabIndex = 2
         Me.TabBSCPE.Text = "BSCPE"
         '
@@ -256,14 +257,14 @@ Partial Class Form1
         Me.DataGridBSCPE.AllowUserToOrderColumns = True
         Me.DataGridBSCPE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridBSCPE.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial", 12.0!)
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridBSCPE.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Arial", 12.0!)
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridBSCPE.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridBSCPE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridBSCPE.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridBSCPE.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
@@ -272,7 +273,7 @@ Partial Class Form1
         Me.DataGridBSCPE.ReadOnly = True
         Me.DataGridBSCPE.RowHeadersVisible = False
         Me.DataGridBSCPE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridBSCPE.Size = New System.Drawing.Size(1283, 260)
+        Me.DataGridBSCPE.Size = New System.Drawing.Size(1283, 261)
         Me.DataGridBSCPE.TabIndex = 0
         '
         'TabFACULTY
@@ -282,7 +283,7 @@ Partial Class Form1
         Me.TabFACULTY.Location = New System.Drawing.Point(4, 27)
         Me.TabFACULTY.Name = "TabFACULTY"
         Me.TabFACULTY.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabFACULTY.Size = New System.Drawing.Size(1289, 266)
+        Me.TabFACULTY.Size = New System.Drawing.Size(1289, 267)
         Me.TabFACULTY.TabIndex = 3
         Me.TabFACULTY.Text = "FACULTY"
         '
@@ -293,7 +294,7 @@ Partial Class Form1
         Me.DataGridFaculty.AllowUserToOrderColumns = True
         Me.DataGridFaculty.AllowUserToResizeRows = False
         Me.DataGridFaculty.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.DataGridFaculty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridFaculty.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.DataGridFaculty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -335,7 +336,7 @@ Partial Class Form1
         'PictureBox4
         '
         Me.PictureBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox4.Image = Global.JPCSRegistration.My.Resources.Resources.bar
         Me.PictureBox4.Location = New System.Drawing.Point(1, 239)
         Me.PictureBox4.Name = "PictureBox4"
@@ -349,7 +350,7 @@ Partial Class Form1
         Me.PictureBox3.Image = Global.JPCSRegistration.My.Resources.Resources.SciTech
         Me.PictureBox3.Location = New System.Drawing.Point(226, 7)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(96, 92)
+        Me.PictureBox3.Size = New System.Drawing.Size(96, 93)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 4
         Me.PictureBox3.TabStop = False
@@ -367,7 +368,7 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.Image = Global.JPCSRegistration.My.Resources.Resources.JPCS
         Me.PictureBox1.Location = New System.Drawing.Point(34, 89)
         Me.PictureBox1.Name = "PictureBox1"
@@ -389,12 +390,22 @@ Partial Class Form1
         Me.Label3.Text = "JUNIOR PHILIPPINE COMPUTER SOCIETY"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(468, 191)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 14
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1299, 574)
+        Me.ClientSize = New System.Drawing.Size(1299, 575)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.Button1)
@@ -411,6 +422,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MinimizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Junior Philippine Computer Society"
@@ -455,4 +467,5 @@ Partial Class Form1
     Friend WithEvents TabFACULTY As System.Windows.Forms.TabPage
     Friend WithEvents DataGridFaculty As System.Windows.Forms.DataGridView
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

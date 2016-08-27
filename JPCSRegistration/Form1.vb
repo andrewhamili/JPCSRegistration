@@ -29,9 +29,8 @@ Public Class Form1
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        'Me.Size = Screen.PrimaryScreen.WorkingArea.Size
+        Timer1.Enabled = True
 
-        'Timer1.Enabled = True
 
         MySQLConn.ConnectionString = connstring
         Dim query As String
@@ -468,21 +467,19 @@ Public Class Form1
         Me.Hide()
     End Sub
 
-    Private Sub Form1_Resize(sender As Object, e As System.EventArgs) Handles Me.Resize
-
-
-
-        If Me.Width > 1032 And Me.Height > 522 Then
+    Private Sub Form1_ResizeEnd(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.ResizeEnd
+        If Me.Width > 1032 Then
         Else
             Me.Width = 1034
-            Me.Height = 524
-
-
         End If
-        Console.WriteLine("REsize")
-        Console.WriteLine("Width: " & Me.Width & "; Height: " & Me.Height & "")
 
+        If Me.Height > 431 Then
+        Else
+            Me.Height = 433
+        End If
     End Sub
 
-   
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        Statistics.ShowDialog()
+    End Sub
 End Class
