@@ -29,9 +29,6 @@ Partial Class Form1
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.lbl_eventdate = New System.Windows.Forms.Label()
         Me.lbl_eventname = New System.Windows.Forms.Label()
         Me.lbl_eventtime = New System.Windows.Forms.Label()
@@ -52,6 +49,7 @@ Partial Class Form1
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabBSIT.SuspendLayout()
         CType(Me.DataGridBSIT, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,61 +68,33 @@ Partial Class Form1
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.Label1.Font = New System.Drawing.Font("Arial", 16.0!)
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(181, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(491, 12)
+        Me.Label1.Location = New System.Drawing.Point(533, 12)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(258, 26)
+        Me.Label1.Size = New System.Drawing.Size(257, 25)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Centro Escolar University"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.Label2.Font = New System.Drawing.Font("Arial", 16.0!)
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(145, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(457, 49)
+        Me.Label2.Location = New System.Drawing.Point(491, 49)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(346, 26)
+        Me.Label2.Size = New System.Drawing.Size(345, 25)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "School of Science and Technology"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(407, 89)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(94, 26)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "JUNIOR"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(509, 89)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(134, 26)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "PHILIPPINE"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(649, 89)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(240, 26)
-        Me.Label5.TabIndex = 1
-        Me.Label5.Text = "COMPUTER SOCIETY"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lbl_eventdate
         '
+        Me.lbl_eventdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.lbl_eventdate.AutoSize = True
         Me.lbl_eventdate.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_eventdate.ForeColor = System.Drawing.Color.White
@@ -137,6 +107,7 @@ Partial Class Form1
         '
         'lbl_eventname
         '
+        Me.lbl_eventname.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.lbl_eventname.AutoSize = True
         Me.lbl_eventname.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.lbl_eventname.ForeColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(145, Byte), Integer))
@@ -149,6 +120,7 @@ Partial Class Form1
         '
         'lbl_eventtime
         '
+        Me.lbl_eventtime.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.lbl_eventtime.AutoSize = True
         Me.lbl_eventtime.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_eventtime.ForeColor = System.Drawing.Color.White
@@ -169,6 +141,9 @@ Partial Class Form1
         '
         'TabControl1
         '
+        Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabBSIT)
         Me.TabControl1.Controls.Add(Me.TabBSCS)
         Me.TabControl1.Controls.Add(Me.TabBSCPE)
@@ -317,10 +292,11 @@ Partial Class Form1
         Me.DataGridFaculty.AllowUserToDeleteRows = False
         Me.DataGridFaculty.AllowUserToOrderColumns = True
         Me.DataGridFaculty.AllowUserToResizeRows = False
+        Me.DataGridFaculty.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.DataGridFaculty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridFaculty.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.DataGridFaculty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridFaculty.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridFaculty.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DataGridFaculty.Location = New System.Drawing.Point(3, 3)
         Me.DataGridFaculty.Name = "DataGridFaculty"
@@ -332,6 +308,7 @@ Partial Class Form1
         '
         'Button1
         '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.BackColor = System.Drawing.Color.Green
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Location = New System.Drawing.Point(1163, 12)
@@ -346,6 +323,7 @@ Partial Class Form1
         '
         'PictureBox5
         '
+        Me.PictureBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox5.Image = Global.JPCSRegistration.My.Resources.Resources.giphy
         Me.PictureBox5.Location = New System.Drawing.Point(1122, 75)
         Me.PictureBox5.Name = "PictureBox5"
@@ -356,6 +334,8 @@ Partial Class Form1
         '
         'PictureBox4
         '
+        Me.PictureBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox4.Image = Global.JPCSRegistration.My.Resources.Resources.bar
         Me.PictureBox4.Location = New System.Drawing.Point(1, 239)
         Me.PictureBox4.Name = "PictureBox4"
@@ -386,6 +366,8 @@ Partial Class Form1
         '
         'PictureBox1
         '
+        Me.PictureBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.Image = Global.JPCSRegistration.My.Resources.Resources.JPCS
         Me.PictureBox1.Location = New System.Drawing.Point(34, 89)
         Me.PictureBox1.Name = "PictureBox1"
@@ -394,12 +376,26 @@ Partial Class Form1
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
+        'Label3
+        '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial", 16.0!)
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(228, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(442, 89)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(459, 25)
+        Me.Label3.TabIndex = 13
+        Me.Label3.Text = "JUNIOR PHILIPPINE COMPUTER SOCIETY"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1299, 574)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TabControl1)
@@ -410,9 +406,6 @@ Partial Class Form1
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lbl_eventname)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -445,9 +438,6 @@ Partial Class Form1
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents lbl_eventdate As System.Windows.Forms.Label
     Friend WithEvents lbl_eventname As System.Windows.Forms.Label
     Friend WithEvents lbl_eventtime As System.Windows.Forms.Label
@@ -464,4 +454,5 @@ Partial Class Form1
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
     Friend WithEvents TabFACULTY As System.Windows.Forms.TabPage
     Friend WithEvents DataGridFaculty As System.Windows.Forms.DataGridView
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class
