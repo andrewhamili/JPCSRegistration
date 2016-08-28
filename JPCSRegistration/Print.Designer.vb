@@ -29,10 +29,12 @@ Partial Class Print
         '
         'ReportViewer1
         '
-        Me.ReportViewer1.Location = New System.Drawing.Point(1, 34)
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(4)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(1318, 596)
+        Me.ReportViewer1.ShowFindControls = False
+        Me.ReportViewer1.Size = New System.Drawing.Size(1321, 635)
         Me.ReportViewer1.TabIndex = 0
         Me.ReportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage
         Me.ReportViewer1.ZoomPercent = 50
@@ -42,7 +44,7 @@ Partial Class Print
         Me.ComboBoxConditions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxConditions.FormattingEnabled = True
         Me.ComboBoxConditions.Items.AddRange(New Object() {"All Students", "BSIT", "BSCS", "BSCPE"})
-        Me.ComboBoxConditions.Location = New System.Drawing.Point(84, 1)
+        Me.ComboBoxConditions.Location = New System.Drawing.Point(524, -3)
         Me.ComboBoxConditions.Name = "ComboBoxConditions"
         Me.ComboBoxConditions.Size = New System.Drawing.Size(162, 26)
         Me.ComboBoxConditions.TabIndex = 1
@@ -50,8 +52,9 @@ Partial Class Print
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Arial Black", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(12, 4)
+        Me.Label1.Location = New System.Drawing.Point(452, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 23)
         Me.Label1.TabIndex = 2

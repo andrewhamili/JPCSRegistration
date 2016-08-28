@@ -107,7 +107,7 @@ Public Class Form2
                         MySQLConn.Close()
                         MsgBox("You have succesfully registerd. You may now proceeed to " & eventlocation & ".", MsgBoxStyle.Information, "Registration")
 
-                        txt_fname.Focus()
+                        txt_lname.Focus()
                         If cbox_cys.Text.Contains("BSIT") Then
                             Form1.LoadTable_BSIT()
                             Form1.ChangeTabBSIT()

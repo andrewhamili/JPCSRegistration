@@ -79,11 +79,11 @@ Partial Class Statistics
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial", 16.0!)
+        Me.Label2.Font = New System.Drawing.Font("Arial", 24.0!)
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(442, 9)
+        Me.Label2.Location = New System.Drawing.Point(432, 9)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(114, 25)
+        Me.Label2.Size = New System.Drawing.Size(163, 36)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Population"
         '

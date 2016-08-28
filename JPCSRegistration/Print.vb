@@ -7,6 +7,7 @@ Public Class Print
     Public head As String
 
     Private Sub Print_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        MySQLConn.Dispose()
         Form1.Show()
     End Sub
 
@@ -16,131 +17,145 @@ Public Class Print
 
         MySQLConn.ConnectionString = connstring
         Load_Courses()
+        Try
+            MySQLConn.Open()
+            query = "SELECT * FROM " & eventtable & " order by coyesec, lname"
+            head = ""
+            Dim header As New ReportParameter("course", head)
+            Dim ename As New ReportParameter("eventname", eventname)
+            Dim edate As New ReportParameter("eventdate", eventdate)
+            Dim etime As New ReportParameter("eventtime", eventtime)
+            Dim elocation As New ReportParameter("eventlocation", eventlocation)
 
-        MySQLConn.Open()
+            Dim adapter As New MySqlDataAdapter
+            Dim ds As New DataSet1
+
+            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
+            adapter.Fill(ds.Tables(0))
+
+            ReportViewer1.LocalReport.DataSources.Clear()
+            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
+            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
+            ReportViewer1.LocalReport.SetParameters(header)
+            ReportViewer1.LocalReport.SetParameters(ename)
+            ReportViewer1.LocalReport.SetParameters(edate)
+            ReportViewer1.LocalReport.SetParameters(etime)
+            ReportViewer1.LocalReport.SetParameters(elocation)
+            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
 
 
-
-
-        query = "SELECT * FROM " & eventtable & " order by coyesec, lname"
-        head = ""
-        Dim header As New ReportParameter("course", head)
-        Dim ename As New ReportParameter("eventname", eventname)
-        Dim edate As New ReportParameter("eventdate", eventdate)
-        Dim etime As New ReportParameter("eventtime", eventtime)
-        Dim elocation As New ReportParameter("eventlocation", eventlocation)
-
-        Dim adapter As New MySqlDataAdapter
-        Dim ds As New DataSet1
-
-        adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-        adapter.Fill(ds.Tables(0))
-
-        ReportViewer1.LocalReport.DataSources.Clear()
-        ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-        ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-        ReportViewer1.LocalReport.SetParameters(header)
-        ReportViewer1.LocalReport.SetParameters(ename)
-        ReportViewer1.LocalReport.SetParameters(edate)
-        ReportViewer1.LocalReport.SetParameters(etime)
-        ReportViewer1.LocalReport.SetParameters(elocation)
-        ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-        'Me.ReportViewer1.RefreshReport()
-        Me.ReportViewer1.RefreshReport()
-        ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
-        MySQLConn.Close()
+            Me.ReportViewer1.RefreshReport()
+            ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
+            ReportViewer1.ZoomMode = ZoomMode.Percent
+            ReportViewer1.ZoomPercent = 25
+            MySQLConn.Close()
+        Catch ex As Exception
+            MsgBox("MySQL Query Error. Please send an e-mail to hamili1302815@ceu.edu.ph to fix this bug immediately.", MsgBoxStyle.Critical, "Junior Philippine Computer Society")
+        End Try
+        
 
     End Sub
 
     Private Sub ComboBoxConditions_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBoxConditions.SelectedIndexChanged
 
-        If ComboBoxConditions.Text = "All Students" Then
-            MySQLConn.ConnectionString = connstring
-
-            MySQLConn.Open()
+        
 
 
-            query = "SELECT * FROM " & eventtable & " where coyesec!='FACULTY' order by coyesec, lname"
-            head = ""
-            Dim ename As New ReportParameter("eventname", eventname)
-            Dim edate As New ReportParameter("eventdate", eventdate)
-            Dim etime As New ReportParameter("eventtime", eventtime)
-            Dim elocation As New ReportParameter("eventlocation", eventlocation)
-            Dim header As New ReportParameter("course", head)
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
+        Try
 
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
+            If ComboBoxConditions.Text = "All Students" Then
+                MySQLConn.ConnectionString = connstring
+                MySQLConn.Open()
+                query = "SELECT * FROM " & eventtable & " where coyesec!='FACULTY' order by coyesec, lname"
+                head = ""
+                Dim ename As New ReportParameter("eventname", eventname)
+                Dim edate As New ReportParameter("eventdate", eventdate)
+                Dim etime As New ReportParameter("eventtime", eventtime)
+                Dim elocation As New ReportParameter("eventlocation", eventlocation)
+                Dim header As New ReportParameter("course", head)
+                Dim adapter As New MySqlDataAdapter
+                Dim ds As New DataSet1
 
-
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-        ElseIf ComboBoxConditions.Text = "BSIT" Or ComboBoxConditions.Text = "BSCS" Or ComboBoxConditions.Text = "BSCPE" Then
-
-            MySQLConn.Open()
+                adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
+                adapter.Fill(ds.Tables(0))
 
 
-            head = ComboBoxConditions.Text
-            Dim ename As New ReportParameter("eventname", eventname)
-            Dim edate As New ReportParameter("eventdate", eventdate)
-            Dim etime As New ReportParameter("eventtime", eventtime)
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT fname, mname, lname, studnum, timein, coyesec from " & eventtable & " where coyesec like '%" & ComboBoxConditions.Text & "%' ORDER BY coyesec, lname ASC"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.Fill(ds.Tables(0))
+                ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
+                ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
+                ReportViewer1.LocalReport.DataSources.Clear()
+                ReportViewer1.LocalReport.SetParameters(header)
+                ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
+
+                Me.ReportViewer1.RefreshReport()
+                ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
+                ReportViewer1.ZoomMode = ZoomMode.Percent
+                ReportViewer1.ZoomPercent = 25
+                MySQLConn.Close()
+            ElseIf ComboBoxConditions.Text = "BSIT" Or ComboBoxConditions.Text = "BSCS" Or ComboBoxConditions.Text = "BSCPE" Then
+
+                MySQLConn.Open()
 
 
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
-
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-
-
-        ElseIf ComboBoxConditions.Text <> "All Students" Then
-
-            MySQLConn.Open()
+                head = ComboBoxConditions.Text
+                Dim ename As New ReportParameter("eventname", eventname)
+                Dim edate As New ReportParameter("eventdate", eventdate)
+                Dim etime As New ReportParameter("eventtime", eventtime)
+                Dim header As New ReportParameter("course", head)
+                query = "SELECT fname, mname, lname, studnum, timein, coyesec from " & eventtable & " where coyesec like '%" & ComboBoxConditions.Text & "%' ORDER BY coyesec, lname ASC"
+                Dim adapter As New MySqlDataAdapter
+                Dim ds As New DataSet1
+                adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
+                adapter.Fill(ds.Tables(0))
 
 
-            head = ComboBoxConditions.Text
-            Dim ename As New ReportParameter("eventname", eventname)
-            Dim edate As New ReportParameter("eventdate", eventdate)
-            Dim etime As New ReportParameter("eventtime", eventtime)
-            Dim header As New ReportParameter("course", head)
-            query = "SELECT fname, mname, lname, studnum, timein, coyesec from " & eventtable & " where coyesec=@comboboxcourse ORDER BY lname, timein ASC"
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As New DataSet1
-            adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
-            adapter.SelectCommand.Parameters.AddWithValue("comboboxcourse", ComboBoxConditions.Text)
-            adapter.Fill(ds.Tables(0))
+                ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
+                ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
+                ReportViewer1.LocalReport.DataSources.Clear()
+                ReportViewer1.LocalReport.SetParameters(header)
+                ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
+
+                Me.ReportViewer1.RefreshReport()
+                ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
+                ReportViewer1.ZoomMode = ZoomMode.Percent
+                ReportViewer1.ZoomPercent = 25
+                MySQLConn.Close()
 
 
-            ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
-            ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
-            ReportViewer1.LocalReport.DataSources.Clear()
-            ReportViewer1.LocalReport.SetParameters(header)
-            ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
+            ElseIf ComboBoxConditions.Text <> "All Students" Then
 
-            Me.ReportViewer1.RefreshReport()
-            MySQLConn.Close()
-
-           
+                MySQLConn.Open()
 
 
-        End If
+                head = ComboBoxConditions.Text
+                Dim ename As New ReportParameter("eventname", eventname)
+                Dim edate As New ReportParameter("eventdate", eventdate)
+                Dim etime As New ReportParameter("eventtime", eventtime)
+                Dim header As New ReportParameter("course", head)
+                query = "SELECT fname, mname, lname, studnum, timein, coyesec from " & eventtable & " where coyesec=@comboboxcourse ORDER BY lname, timein ASC"
+                Dim adapter As New MySqlDataAdapter
+                Dim ds As New DataSet1
+                adapter.SelectCommand = New MySqlCommand(query, MySQLConn)
+                adapter.SelectCommand.Parameters.AddWithValue("comboboxcourse", ComboBoxConditions.Text)
+                adapter.Fill(ds.Tables(0))
+
+
+                ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local
+                ReportViewer1.LocalReport.ReportPath = System.Environment.CurrentDirectory & "\Report1.rdlc"
+                ReportViewer1.LocalReport.DataSources.Clear()
+                ReportViewer1.LocalReport.SetParameters(header)
+                ReportViewer1.LocalReport.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", ds.Tables(0)))
+
+                Me.ReportViewer1.RefreshReport()
+                ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
+                ReportViewer1.ZoomMode = ZoomMode.Percent
+                ReportViewer1.ZoomPercent = 25
+                MySQLConn.Close()
+            End If
+
+        Catch ex As Exception
+            MsgBox("MySQL Query Error. Please send an e-mail to hamili1302815@ceu.edu.ph to fix this bug immediately.", MsgBoxStyle.Critical, "Junior Philippine Computer Society")
+        End Try
+            
 
 
     End Sub
