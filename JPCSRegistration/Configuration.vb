@@ -193,4 +193,35 @@ Public Class Configuration
         End Try
 
     End Sub
+
+    Private Sub btn_dbaseBackup_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_dbaseBackup.Click
+        'Dim filename As String
+        'If sfd_DatabaseBackup.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+        '    filename = sfd_DatabaseBackup.FileName
+        '    Database_Backup(filename)
+        'End If
+        Database_Backup()
+
+    End Sub
+    Public Sub Database_Backup()
+        If MySQLConn.State = ConnectionState.Open Then
+            MySQLConn.Close()
+        End If
+
+        MySQLConn.ConnectionString = connstring
+        comm = New MySqlCommand()
+        comm.Connection = MySQLConn
+        Dim mb As New MySqlBackup(comm)
+        Try
+            MySQLConn.Open()
+            mb.ExportInfo.AddCreateDatabase = True
+            mb.ExportToFile("jpcsreg.sql")
+            MySQLConn.Close()
+            MsgBox("The Database was successfully exported.", MsgBoxStyle.Information, "Junior Philippine Computer Society")
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Junior Philippine Computer Society")
+        Finally
+            MySQLConn.Dispose()
+        End Try
+    End Sub
 End Class

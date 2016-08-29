@@ -52,6 +52,8 @@ Partial Class Configuration
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.lbl_currentevent = New System.Windows.Forms.Label()
+        Me.btn_dbaseBackup = New System.Windows.Forms.Button()
+        Me.sfd_DatabaseBackup = New System.Windows.Forms.SaveFileDialog()
         Me.Panel_newevent.SuspendLayout()
         Me.Panel_event.SuspendLayout()
         Me.SuspendLayout()
@@ -375,12 +377,26 @@ Partial Class Configuration
         Me.lbl_currentevent.TabIndex = 12
         Me.lbl_currentevent.Text = "lbl_currentevent"
         '
+        'btn_dbaseBackup
+        '
+        Me.btn_dbaseBackup.Location = New System.Drawing.Point(47, 329)
+        Me.btn_dbaseBackup.Name = "btn_dbaseBackup"
+        Me.btn_dbaseBackup.Size = New System.Drawing.Size(182, 32)
+        Me.btn_dbaseBackup.TabIndex = 15
+        Me.btn_dbaseBackup.Text = "Backup Database"
+        Me.btn_dbaseBackup.UseVisualStyleBackColor = True
+        '
+        'sfd_DatabaseBackup
+        '
+        Me.sfd_DatabaseBackup.FileName = "jpcsreg"
+        '
         'Configuration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(744, 382)
+        Me.Controls.Add(Me.btn_dbaseBackup)
         Me.Controls.Add(Me.Panel_event)
         Me.Controls.Add(Me.lbl_currentevent)
         Me.Controls.Add(Me.Label6)
@@ -430,4 +446,6 @@ Partial Class Configuration
     Friend WithEvents lbl_eventtime As Label
     Friend WithEvents lbl_eventdate As Label
     Friend WithEvents lbl_eventname As Label
+    Friend WithEvents btn_dbaseBackup As System.Windows.Forms.Button
+    Friend WithEvents sfd_DatabaseBackup As System.Windows.Forms.SaveFileDialog
 End Class
