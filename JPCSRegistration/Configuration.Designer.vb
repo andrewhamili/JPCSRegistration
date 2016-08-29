@@ -388,7 +388,9 @@ Partial Class Configuration
         '
         'sfd_DatabaseBackup
         '
-        Me.sfd_DatabaseBackup.FileName = "jpcsreg"
+        Me.sfd_DatabaseBackup.FileName = "JPCSRegistration"
+        Me.sfd_DatabaseBackup.Filter = "7zip Encrypted Archive (*.7z)|*.7z"
+        Me.sfd_DatabaseBackup.InitialDirectory = "%userprofile%\Desktop\Database\"
         '
         'Configuration
         '

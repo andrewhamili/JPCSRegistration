@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.IO
 Public Class Configuration
 
     Public pendingeventtablename As String
@@ -195,12 +196,39 @@ Public Class Configuration
     End Sub
 
     Private Sub btn_dbaseBackup_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_dbaseBackup.Click
-        'Dim filename As String
-        'If sfd_DatabaseBackup.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
-        '    filename = sfd_DatabaseBackup.FileName
-        '    Database_Backup(filename)
-        'End If
+
+        MsgBox("Click OK to start the Back-up Process. This may take several minutes depending on how many data that will be backed up or depending on the speed of your System. " & vbCrLf & "" & vbCrLf & "PLEASE BE PATIENT", MsgBoxStyle.Information, "Junior Philippine Computer Society")
+
         Database_Backup()
+        Dim sqlFile As New FileInfo("jpcsreg.sql")
+        Dim ArchivedFile As New FileInfo("JPCSRegistration.7z")
+        If sqlFile.Length > 100 Then
+            Dim run As New Process
+            run.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
+            run.StartInfo.CreateNoWindow = True
+            run.StartInfo.FileName = ("7z.exe")
+            run.StartInfo.Arguments = ("a JPCSRegistration.7z jpcsreg.sql -pc1bc9e51b08a85fabf2c828107009f71cafdf5a98275e4d05b45a341e22f7adfce249b66e1398ff47ec2abb97216ef730bd47169834724f88539107ac23c9933 -mhe")
+            run.Start()
+            run.WaitForExit()
+
+            If Not Directory.Exists(Environment.GetEnvironmentVariable("userprofile") + "\Desktop\Database\") Then
+                Directory.CreateDirectory(Environment.GetEnvironmentVariable("userprofile") + "\Desktop\Database\")
+            End If
+
+            sqlFile.Delete()
+            If sfd_DatabaseBackup.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+                File.Delete(Environment.GetEnvironmentVariable("userprofile") + "\Desktop\Database\JPCSRegistration.7z")
+                ArchivedFile.MoveTo(sfd_DatabaseBackup.FileName)
+            Else
+                MsgBox("You have cancelled the Backup Process!", MsgBoxStyle.Information, "Junior Philippine Computer Society")
+                ArchivedFile.Delete()
+            End If
+        Else
+            MsgBox("The System was not able to Produce a Database Backup. Please send a report to the Developer immediately!", MsgBoxStyle.Critical, "Junior Philippine Computer Society")
+
+        End If
+
+
 
     End Sub
     Public Sub Database_Backup()
@@ -217,11 +245,28 @@ Public Class Configuration
             mb.ExportInfo.AddCreateDatabase = True
             mb.ExportToFile("jpcsreg.sql")
             MySQLConn.Close()
-            MsgBox("The Database was successfully exported.", MsgBoxStyle.Information, "Junior Philippine Computer Society")
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Junior Philippine Computer Society")
         Finally
             MySQLConn.Dispose()
         End Try
     End Sub
+    Public Sub ShellandWait(ByVal ProcessPath As String)
+        Dim objProcess As System.Diagnostics.Process
+        Try
+            objProcess = New System.Diagnostics.Process()
+            objProcess.StartInfo.FileName = ProcessPath
+            objProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
+            objProcess.Start()
+
+            'Wait until the process passes back an exit code 
+            objProcess.WaitForExit()
+
+            'Free resources associated with this process
+            objProcess.Close()
+        Catch
+            MessageBox.Show("Could not start process " & ProcessPath, "Error")
+        End Try
+    End Sub
+
 End Class

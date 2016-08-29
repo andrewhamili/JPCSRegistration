@@ -54,11 +54,13 @@ Public Class Form1
                 eventtime = reader.GetString("time")
                 eventlocation = reader.GetString("location")
                 eventtable = reader.GetString("eventtable")
+
             End While
             MySQLConn.Close()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+
 
         lbl_eventname.Text = eventname
         lbl_eventdate.Text = eventdate
@@ -479,7 +481,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub Pbox_Stats_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pbox_Stats.Click
         Statistics.ShowDialog()
     End Sub
 End Class
