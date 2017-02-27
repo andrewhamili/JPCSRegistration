@@ -18,8 +18,15 @@ Public Class Form2
 
     Private Sub txt_studnum_PreviewKeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.PreviewKeyDownEventArgs) Handles txt_studnum.PreviewKeyDown
         If e.KeyCode = Keys.Back Or e.KeyCode = Keys.Delete Then
+            If txt_studnum.Text.Length = 3 Then
+                RemoveHandler txt_studnum.TextChanged, AddressOf txt_studnum_TextChanged
+            End If
+            If txt_studnum.Text.Length = 2 Then
+                AddHandler txt_studnum.TextChanged, AddressOf txt_studnum_TextChanged
+
+            End If
             If txt_studnum.Text.Length > 0 Then
-                txt_studnum.Text = ""
+                txt_studnum.Text = txt_studnum.Text.Replace(txt_studnum.Text.Substring(txt_studnum.Text.Length - 1), String.Empty)
                 txt_studnum.Select(txt_studnum.Text.Length, 0)
             End If
         End If
